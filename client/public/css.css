@@ -1,0 +1,55 @@
+*
+{
+  margin:0;
+  padding:0;
+}
+
+body {
+  font-family: 'Roboto Mono', monospace;
+}
+
+.super_wrap
+{
+  display:flex;
+  
+}
+
+.left_half
+{
+  width:45vw;
+  background-color:#204051;
+  height: 110vh;
+  z-index: 2;
+}
+
+.right_half
+{
+  position: fixed;
+  left:45.5%;
+  width:55vw;
+  overflow:scroll;
+  background-image:-webkit-linear-gradient(left,rgba(78, 244, 232,0.4),rgba(44, 36, 76,0.4),rgba(78, 244, 232,0.4)); 
+}
+
+.right_half::-webkit-scrollbar {
+  display: none;
+}
+
+
+#chartdiv
+{
+  height: 100vh;
+}
+
+.header
+{
+  text-align: center;
+  margin-top:5% ;
+}
+
+.header h1
+{
+  color:#eee;
+  letter-spacing: 2px;
+  font-size: 3vw;
+}
