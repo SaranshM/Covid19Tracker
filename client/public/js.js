@@ -1,3 +1,5 @@
+
+
 am4core.ready(function() {
 
     am4core.useTheme(am4themes_animated);
@@ -81,9 +83,13 @@ am4core.ready(function() {
         countrySeries.geodataSource.url = "https://www.amcharts.com/lib/4/geodata/json/" + map + ".json";
         
         countrySeries.geodataSource.load();
-        console.log(countrySeries.geodataSource.data);
       }
       console.log(ev.target.dataItem.dataContext.name);
+      axios.post('http://localhost:3000/hello', {place:ev.target.dataItem.dataContext.name})
+            .then(res => {
+                console.log(res.data);
+            }
+      );
     });
     
     var data = [];
