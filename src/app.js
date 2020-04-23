@@ -7,6 +7,7 @@ const app = express()
 
 const post=bp.urlencoded({extended:false});
 app.use(bp.json());
+
 //paths
 const publicpath = path.join(__dirname,'../client')
 const viewspath = path.join(__dirname,'../templates/views')
@@ -24,9 +25,29 @@ app.get('/', (req,res) => {
 })
 
 app.post('/hello',post, (req,res) => {
-    console.log(req.body);
-    // res.send({ok:"ok"});
+    console.log(req.body.place);
     
+    if(req.body.place=='India' || req.body.place=='india'){
+
+        var func = require('./utils/request.js')
+        
+        func((error,data)=>{
+            if(error){
+                const msg = {
+                    error: 'Error Occured'
+                }
+                res.render('index',msg)
+            }else{
+                console.log(data)
+                res.render('index',data)
+            }
+        })
+        
+
+    }
+    
+
+
 })
 
 
