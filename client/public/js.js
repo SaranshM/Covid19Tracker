@@ -1,8 +1,6 @@
 am4core.ready(function() {
 
-    // Themes begin
     am4core.useTheme(am4themes_animated);
-    // Themes end
     
     var continents = {
       "AF": 0,
@@ -14,15 +12,23 @@ am4core.ready(function() {
       "SA": 6
     }
     
-    // Create map instance
     var chart = am4core.create("chartdiv", am4maps.MapChart);
     
     chart.projection = new am4maps.projections.Orthographic();
     chart.panBehavior = "rotateLongLat";
     chart.deltaLatitude = -20;
     chart.padding(20,20,20,20);
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position){
+        
+        $.get( "https://us1.locationiq.com/v1/reverse.php?key=4a41aec453de57&lat="+position.coords.latitude+"&lon="+position.coords.longitude+"&format=json&zoom=5", function(data) {
+          console.log(data.address.state);
+        })
+      });
+      
+    }
     
-    // Create map polygon series for world map
     var worldSeries = chart.series.push(new am4maps.MapPolygonSeries());
     worldSeries.useGeodata = true;
     worldSeries.geodata = am4geodata_worldLow;
@@ -44,13 +50,11 @@ am4core.ready(function() {
     chart.backgroundSeries.mapPolygons.template.polygon.fillOpacity = 1;
     chart.backgroundSeries.mapPolygons.template.polygon.fill = am4core.color("#224B87");
     
-    // worldPolygon.propertyFields.fill = "color";
     
     var hs = worldPolygon.states.create("hover");
     hs.properties.fill = chart.colors.getIndex(9);
     
-    
-    // Create country specific series (but hide it for now)
+  
     var countrySeries = chart.series.push(new am4maps.MapPolygonSeries());
     countrySeries.useGeodata = true;
     countrySeries.hide();
@@ -68,9 +72,6 @@ am4core.ready(function() {
     var hs = countryPolygon.states.create("hover");
     hs.properties.fill = chart.colors.getIndex(9);
     
-    
-    
-    // Set up click events
     worldPolygon.events.on("hit", function(ev) {
       ev.target.series.chart.zoomToMapObject(ev.target);
       var map = ev.target.dataItem.dataContext.map;
@@ -85,7 +86,6 @@ am4core.ready(function() {
       console.log(ev.target.dataItem.dataContext.name);
     });
     
-    // Set up data for countries
     var data = [];
     for(var id in am4geodata_data_countries2) {
       if (am4geodata_data_countries2.hasOwnProperty(id)) {
@@ -105,7 +105,6 @@ am4core.ready(function() {
         console.log(ev.target.dataItem.dataContext.name);
     })
     
-    // Zoom control
     chart.zoomControl = new am4maps.ZoomControl();
     
     var homeButton = new am4core.Button();
@@ -124,6 +123,10 @@ am4core.ready(function() {
     homeButton.marginBottom = 10;
     homeButton.parent = chart.zoomControl;
     homeButton.insertBefore(chart.zoomControl.plusButton);
+
     
     
-    }); // end am4core.ready()
+    
+    });
+
+   
