@@ -135,4 +135,23 @@ am4core.ready(function() {
     
     });
 
+
+    $(document).ready(function(){
+      
+      var countries;
+
+      fetch('https://api.covid19api.com/countries', {method: 'GET'}).then(function(response) { 
+        return response.json(); 
+      }).then(function(json) {
+        var i=0;
+        for(i=0;i<json.length;i++)
+        {
+          var node = document.createElement("OPTION");
+          var textnode = document.createTextNode(json[i].Country);
+          node.appendChild(textnode);
+          document.getElementById("department").appendChild(node);
+        }
+      });
+    })
+
    
