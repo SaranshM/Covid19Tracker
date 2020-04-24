@@ -16,9 +16,7 @@ const func = (callback)=>{
             }
             callback(undefined,obj)
         }
-
     } )
-
 }
 
 module.exports = func

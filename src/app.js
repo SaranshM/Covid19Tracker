@@ -24,27 +24,37 @@ app.get('/', (req,res) => {
     res.render('index')
 })
 
-app.post('/hello',post, (req,res) => {
+app.post('/region/:id',post, (req,res) => {
     console.log(req.body.place);
-    
-    if(req.body.place=='India' || req.body.place=='india'){
+    console.log(req.params.id);
 
-        var func = require('./utils/request.js')
-        
-        func((error,data)=>{
-            if(error){
-                const msg = {
-                    error: 'Error Occured'
-                }
-                res.render('index',msg)
-            }else{
-                console.log(data)
-                res.render('index',data)
-            }
-        })
-        
-
+    if(req.params.id=="country")
+    {
+        //fetch data for country
     }
+    else if(req.params.id=="state")
+    {
+        //fetch data for state
+    }
+    
+    // if(req.body.place=='India' || req.body.place=='india'){
+
+    //     var func = require('./utils/request.js')
+        
+    //     func((error,data)=>{
+    //         if(error){
+    //             const msg = {
+    //                 error: 'Error Occured'
+    //             }
+    //             res.render('index',msg)
+    //         }else{
+    //             console.log(data)
+    //             res.render('index',data)
+    //         }
+    //     })
+        
+
+    // }
     
 
 

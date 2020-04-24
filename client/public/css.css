@@ -60,21 +60,30 @@ body {
 form
 {
   margin:0 auto;
-  width:25vw;
+  width:35vw;
   text-align: center;
   margin-top:5% ;
   display:flex;
+  justify-content: center;
 }
 
-input
+#myInput
 {
-  width:100%;
+  width:25vw;
   padding:3%;
-  border-radius: 30px 0 0 30px;
+  border-radius: 5px 0 0 5px;
   border:none;
   padding-left:6%;
   font-family: 'Roboto Mono', monospace;
   font-size:1.2vw;
+  transition: 0.5s;
+  height: 50px;
+  /* border-bottom:solid #204051 3px; */
+}
+
+#myInput:focus
+{
+  background-color: white;
 }
 
 button
@@ -82,7 +91,7 @@ button
   border:none;
   background-color: 	rgb(250, 169, 49);
   border-radius: 0px 30px 30px 0px;
-  padding:3%;
+  padding:1%;
   cursor: pointer;
   transition: .3s;
   opacity: 0.9;
@@ -109,3 +118,57 @@ textarea:focus,
 button:focus {
     outline: none;
 }
+
+/*-------------------*/
+.autocomplete {
+  /*the container must be positioned relative:*/
+  position: relative;
+  display: inline-block;
+}
+input {
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 16px;
+}
+input[type=text] {
+  background-color: #f1f1f1;
+  width: 100%;
+}
+.autocomplete-items {
+  position: absolute;
+  
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+  box-shadow: 0px 10px 20px rgb(255,255,255,0.4);
+  background-image:-webkit-linear-gradient(top,rgb(236, 195, 201),rgb(253, 253, 252),rgb(236, 195, 201)) ;
+}
+
+.autocomplete-items div:first-child
+{
+  border-top: 5px;
+}
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: transparent; 
+  border-bottom: 1px solid black; 
+  transition:background-color 0.4s;
+  border-radius: 5px;
+}
+.autocomplete-items div:hover {
+  /*when hovering an item:*/
+  background-color: rgb(228, 255, 255,1); 
+}
+.autocomplete-active {
+  /*when navigating through the items using the arrow keys:*/
+  background-color: DodgerBlue !important; 
+  color: #ffffff; 
+}
+
+
