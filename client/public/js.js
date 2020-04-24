@@ -237,4 +237,17 @@ am4core.ready(function() {
     //   });
     // })
 
+
+  var button=document.getElementsByTagName("form")[0];
+  button.addEventListener('submit',(e)=>{
+    e.preventDefault();
+    var placex=document.getElementsByTagName('input')[0].value;
+    axios.post('http://localhost:3000/region/country', {place:placex})
+            .then(res => {
+                console.log(res.data);
+            }
+    );
+
+  });
+
    
