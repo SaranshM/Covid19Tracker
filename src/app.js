@@ -25,13 +25,13 @@ app.get('/', (req,res) => {
 })
 
 app.post('/region/:id',post, (req,res) => {
-    console.log(req.body.place);
-    console.log(req.params.id);
+    
 
     if(req.params.id=="country")
     {
         //fetch data for country
-        module.exports = req.body.place
+        console.log(req.body.place);
+        module.exports = req.body.place;
         var func = require('./utils/request.js')
 
         func(req.body.place,(error,data)=>{
@@ -42,7 +42,7 @@ app.post('/region/:id',post, (req,res) => {
                         res.send(msg)
                     }else{
                         console.log(data)
-                        res.send(data)
+                        res.send(data);
                     }
                 })
 

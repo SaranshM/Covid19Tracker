@@ -1,3 +1,14 @@
+function display_data(data){
+  console.log(data);
+  document.getElementById('loading').style.display="none";
+  document.getElementById('data_wrap').style.display="block";
+  var place=document.getElementById('place_value').innerHTML=data.country;
+  var active=document.getElementById('active_count').innerHTML=data.active;
+  var recovered=document.getElementById('recovered_count').innerHTML=data.recovered;
+  var death=document.getElementById('death_count').innerHTML=data.deaths;
+  var confirm=document.getElementById('confirm_count').innerHTML=data.confirmed;
+}
+
 function autocomplete(inp, arr) {
   var currentFocus;
   inp.addEventListener("input", function(e) {
@@ -71,21 +82,30 @@ var countries = ["Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla"
 
 autocomplete(document.getElementById("myInput"), countries);
 
-$(document).ready(function(){
+function location_track()
+{
   if (navigator.geolocation) {
+    
     navigator.geolocation.getCurrentPosition(function(position){
       
       $.get( "https://us1.locationiq.com/v1/reverse.php?key=4a41aec453de57&lat="+position.coords.latitude+"&lon="+position.coords.longitude+"&format=json&zoom=5", function(data) {
         console.log(data.address.country);
         axios.post('http://localhost:3000/region/country', {place:data.address.country})
           .then(res => {
-              console.log(res.data);
+              return display_data(res.data);
+              
           }
         );
       })
     }); 
   }
-});
+}
+
+function hide(){
+
+  document.getElementById('loading').style.display="block";
+  document.getElementById('data_wrap').style.display="none";
+}
 
 am4core.ready(function() {
 
@@ -152,6 +172,8 @@ am4core.ready(function() {
     hs.properties.fill = chart.colors.getIndex(9);
     
     worldPolygon.events.on("hit", function(ev) {
+      hide();
+      
       ev.target.series.chart.zoomToMapObject(ev.target);
       var map = ev.target.dataItem.dataContext.map;
     
@@ -164,7 +186,7 @@ am4core.ready(function() {
       console.log(ev.target.dataItem.dataContext.name);
       axios.post('http://localhost:3000/region/country', {place:ev.target.dataItem.dataContext.name})
             .then(res => {
-                console.log(res.data);
+              return display_data(res.data);
             }
       );
     });
@@ -244,7 +266,7 @@ am4core.ready(function() {
     var placex=document.getElementsByTagName('input')[0].value;
     axios.post('http://localhost:3000/region/country', {place:placex})
             .then(res => {
-                console.log(res.data);
+              return display_data(res.data);
             }
     );
 

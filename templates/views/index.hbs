@@ -10,9 +10,9 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyCzIMktvBu1snzyg-X2Eh9qI-BVjkMCUpQ"></script>
-
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 </head>
-<body>
+<body onload="location_track()">
 	<div class="super_wrap">
 		<div class="left_half">
 			<div class="header">
@@ -24,6 +24,39 @@
 				</div>
 				<button type="submit"><img src="https://img.icons8.com/ios/50/000000/search--v1.png"/></button>
 			</form>
+			<div id="data_wrap" class="animated fadeIn">
+				<div class="place">
+					<h1 id="place_value">WORLD</h1>
+				</div>
+				<div class="data1">
+					<div class="confirm">
+						<p>Confirmed : </p>
+						<p id="confirm_count">1234</p>
+					</div>
+					<div class="death">
+						<p>Deaths : </p>
+						<p id="death_count">1234</p>
+					</div>
+					<div class="active">
+						<p>Active : </p>
+						<p id="active_count">1234</p>
+					</div>
+					<div class="recovered">
+						<p>Recovered : </p>
+						<p id="recovered_count">1234</p>
+					</div>
+				</div>
+			</div>
+			<div id="loading">
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+			</div>
 		</div>
 		<div class="right_half">
 			<div id="chartdiv"></div>

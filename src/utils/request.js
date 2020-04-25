@@ -1,9 +1,11 @@
 const place = require('../app.js')
 const request = require('request')
-const url = 'https://api.covid19api.com/country/'+place
+
 
 const func = (place,callback)=>{
-
+    console.log(place);
+    const url = 'https://api.covid19api.com/country/'+place;
+    console.log(url);
     request( {url, json:true}, (error,response)=>{
         if(error){
             callback('Error Message',undefined)
