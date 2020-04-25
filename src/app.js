@@ -26,7 +26,8 @@ app.get('/', (req,res) => {
 
 app.post('/region/:id',post, (req,res) => {
     
-
+    var d = new Date();
+    console.log(d.getFullYear());
     if(req.params.id=="country")
     {
         //fetch data for country

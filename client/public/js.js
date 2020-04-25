@@ -9,6 +9,16 @@ function display_data(data){
   var confirm=document.getElementById('confirm_count').innerHTML=data.confirmed;
 }
 
+function display_state_data(data){
+  document.getElementById('loading').style.display="none";
+  document.getElementById('data_wrap').style.display="block";
+  var place=document.getElementById('place_value').innerHTML="India"+" - "+data.state;
+  var active=document.getElementById('active_count').innerHTML=data.active;
+  var recovered=document.getElementById('recovered_count').innerHTML=data.recovered;
+  var death=document.getElementById('death_count').innerHTML=data.deaths;
+  var confirm=document.getElementById('confirm_count').innerHTML=data.confirmed;
+}
+
 function autocomplete(inp, arr) {
   var currentFocus;
   inp.addEventListener("input", function(e) {
@@ -21,6 +31,8 @@ function autocomplete(inp, arr) {
       a.setAttribute("class", "autocomplete-items");
       
       this.parentNode.appendChild(a);
+
+      var hosb=0;
       
       for (i = 0; i < arr.length; i++) {
         if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
@@ -32,6 +44,19 @@ function autocomplete(inp, arr) {
               inp.value = this.getElementsByTagName("input")[0].value;
               closeAllLists();
           });
+
+          if(hosb<300)
+          {
+            
+            hosb=hosb+41.7;
+          }
+          else
+          {
+            document.getElementsByClassName('autocomplete-items')[0].style.overflowY="scroll";
+          }
+          
+          console.log(hosb);
+          document.getElementsByClassName('autocomplete-items')[0].style.height=hosb+"px";
           a.appendChild(b);
         }
       }
@@ -107,6 +132,10 @@ function hide(){
   document.getElementById('data_wrap').style.display="none";
 }
 
+function change_search_bar(place){
+  document.getElementsByTagName('input')[0].value=place;
+}
+
 am4core.ready(function() {
 
     am4core.useTheme(am4themes_animated);
@@ -135,8 +164,8 @@ am4core.ready(function() {
     
     var worldPolygon = worldSeries.mapPolygons.template;
     worldPolygon.tooltipText = "{name}";
-    worldPolygon.fill = am4core.color("rgb(35, 190, 139)");
-    worldPolygon.stroke = am4core.color("rgba(0,0,0,0.2)");
+    worldPolygon.fill = am4core.color("#74AC48");
+    worldPolygon.stroke = am4core.color("rgba(255,255,255,0.7)");
     worldPolygon.nonScalingStroke = true;
     worldPolygon.strokeOpacity = 0.5;
     worldPolygon.cursorOverStyle = am4core.MouseCursorStyle.pointer;
@@ -147,7 +176,7 @@ am4core.ready(function() {
     graticuleSeries.fitExtent = false;
     
     chart.backgroundSeries.mapPolygons.template.polygon.fillOpacity = 1;
-    chart.backgroundSeries.mapPolygons.template.polygon.fill = am4core.color("#224B87");
+    chart.backgroundSeries.mapPolygons.template.polygon.fill = am4core.color("#07519A");
     
     
     var hs = worldPolygon.states.create("hover");
@@ -173,7 +202,8 @@ am4core.ready(function() {
     
     worldPolygon.events.on("hit", function(ev) {
       hide();
-      
+      // console.log(document.getElementsByTagName('input')[0].value);
+      change_search_bar(ev.target.dataItem.dataContext.name);
       ev.target.series.chart.zoomToMapObject(ev.target);
       var map = ev.target.dataItem.dataContext.map;
     
@@ -207,11 +237,11 @@ am4core.ready(function() {
     worldSeries.data = data;
     
     countryPolygon.events.on("hit",function(ev){
-        
+        hide();
         console.log(ev.target.dataItem.dataContext.name);
         axios.post('http://localhost:3000/region/state', {place:ev.target.dataItem.dataContext.name})
             .then(res => {
-                console.log(res.data);
+                return display_state_data(res.data);
             }
       );
     })
@@ -263,6 +293,7 @@ am4core.ready(function() {
   var button=document.getElementsByTagName("form")[0];
   button.addEventListener('submit',(e)=>{
     e.preventDefault();
+    hide();
     var placex=document.getElementsByTagName('input')[0].value;
     axios.post('http://localhost:3000/region/country', {place:placex})
             .then(res => {

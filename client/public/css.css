@@ -29,7 +29,8 @@ body {
   left:45.5%;
   width:55vw;
   overflow:scroll;
-  background-image:-webkit-linear-gradient(left,rgba(78, 244, 232,0.4),rgba(44, 36, 76,0.4),rgba(78, 244, 232,0.4)); 
+  /* background-image:-webkit-linear-gradient(left,rgba(78, 244, 232,0.4),rgba(44, 36, 76,0.4),rgba(78, 244, 232,0.4));  */
+  background-color: #e7eff6;
 }
 
 .right_half::-webkit-scrollbar {
@@ -145,8 +146,9 @@ input[type=text] {
   top: 100%;
   left: 0;
   right: 0;
-  box-shadow: 0px 10px 20px rgb(255,255,255,0.4);
-  background-image:-webkit-linear-gradient(top,rgb(236, 195, 201),rgb(253, 253, 252),rgb(236, 195, 201)) ;
+  /* box-shadow: 0px 10px 20px rgb(255,255,255,0.4); */
+  /* background-image:-webkit-linear-gradient(top,rgb(236, 195, 201),rgb(253, 253, 252),rgb(236, 195, 201)) ; */
+  /* overflow-y:scroll ; */
 }
 
 .autocomplete-items div:first-child
@@ -154,9 +156,9 @@ input[type=text] {
   border-top: 5px;
 }
 .autocomplete-items div {
-  padding: 10px;
+  padding:10px;
   cursor: pointer;
-  background-color: transparent; 
+  background-color:#e7d3d3 ; 
   border-bottom: 1px solid black; 
   transition:background-color 0.4s;
   border-radius: 5px;
