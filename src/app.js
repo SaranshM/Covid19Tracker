@@ -31,30 +31,42 @@ app.post('/region/:id',post, (req,res) => {
     if(req.params.id=="country")
     {
         //fetch data for country
+        module.exports = req.body.place
+        var func = require('./utils/request.js')
+
+        func(req.body.place,(error,data)=>{
+                    if(error){
+                        const msg = {
+                            error: 'Error Occured'
+                        }
+                        res.send(msg)
+                    }else{
+                        console.log(data)
+                        res.send(data)
+                    }
+                })
+
     }
     else if(req.params.id=="state")
     {
         //fetch data for state
+        module.exports = req.body.place
+        var func = require('./utils/indian_states.js')
+
+        func(req.body.place,(error,data)=>{
+                    if(error){
+                        const msg = {
+                            error: 'Error Occured'
+                        }
+                        res.send(msg)
+                    }else{
+                        console.log(data)
+                        res.send(data)
+                    }
+                })
+
     }
     
-    // if(req.body.place=='India' || req.body.place=='india'){
-
-    //     var func = require('./utils/request.js')
-        
-    //     func((error,data)=>{
-    //         if(error){
-    //             const msg = {
-    //                 error: 'Error Occured'
-    //             }
-    //             res.render('index',msg)
-    //         }else{
-    //             console.log(data)
-    //             res.render('index',data)
-    //         }
-    //     })
-        
-
-    // }
     
 
 

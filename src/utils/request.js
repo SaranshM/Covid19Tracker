@@ -1,18 +1,25 @@
+const place = require('../app.js')
 const request = require('request')
+const url = 'https://api.covid19api.com/country/'+place
 
-const url = 'https://api.covid19india.org/data.json';
-
-const func = (callback)=>{
+const func = (place,callback)=>{
 
     request( {url, json:true}, (error,response)=>{
         if(error){
             callback('Error Message',undefined)
         }else{
+            // console.log(response.body[response.body.length - 1])
+            var x =response.body[response.body.length - 1]
+            var active = x.Confirmed - x.Recovered - x.Deaths
             var obj = {
-                active: response.body.statewise[0].active,
-                confirmed: response.body.statewise[0].confirmed,
-                deaths: response.body.statewise[0].deaths,
-                recovered: response.body.statewise[0].recovered
+                country: x.Country,
+                countryCode : x.CountryCode,
+                confirmed: x.Confirmed,
+                deaths: x.Deaths,
+                recovered: x.Recovered,
+                active,
+                date : x.Date
+
             }
             callback(undefined,obj)
         }
