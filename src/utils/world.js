@@ -1,5 +1,5 @@
 const request = require('request')
-const url = 'https://api.covid19api.com/summary'
+const url = 'https://api.covid19api.com/summary';
 
 const func = (callback)=>{
 
@@ -10,7 +10,7 @@ const func = (callback)=>{
             var x =response.body.Global
             var active = x.TotalConfirmed - x.TotalDeaths - x.TotalRecovered
             var obj = {
-                place: "World",
+                country: "World",
                 confirmed: x.TotalConfirmed,
                 deaths: x.TotalDeaths,
                 recovered: x.TotalRecovered,

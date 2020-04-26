@@ -73,6 +73,23 @@ app.post('/region/:id',post, (req,res) => {
                 })
 
     }
+    else if(req.params.id=='world')
+    {
+
+        var func = require('./utils/world.js')
+
+        func((error,data)=>{
+            if(error){
+                const msg = {
+                    error: 'Error Occured'
+                }
+                res.send(msg)
+            }else{
+                console.log(data)
+                res.send(data);
+            }
+        })
+    }
     
     
 
