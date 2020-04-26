@@ -55,7 +55,7 @@ function autocomplete(inp, arr) {
             document.getElementsByClassName('autocomplete-items')[0].style.overflowY="scroll";
           }
           
-          console.log(hosb);
+          // console.log(hosb);
           document.getElementsByClassName('autocomplete-items')[0].style.height=hosb+"px";
           a.appendChild(b);
         }
@@ -195,7 +195,7 @@ am4core.ready(function() {
     countryPolygon.tooltipText = "{name}";
     countryPolygon.nonScalingStroke = true;
     countryPolygon.strokeOpacity = 0.5;
-    countryPolygon.fill = am4core.color("#63ace5");
+    countryPolygon.fill = am4core.color("#74AC48");
     
     var hs = countryPolygon.states.create("hover");
     hs.properties.fill = chart.colors.getIndex(9);

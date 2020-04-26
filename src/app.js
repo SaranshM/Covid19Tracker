@@ -24,6 +24,12 @@ app.get('/', (req,res) => {
     res.render('index')
 })
 
+app.get('/*',(req,res)=>{
+    res.send({
+        error: 'Page does not Exist'
+    })
+})
+
 app.post('/region/:id',post, (req,res) => {
     
     var d = new Date();
@@ -38,7 +44,7 @@ app.post('/region/:id',post, (req,res) => {
         func(req.body.place,(error,data)=>{
                     if(error){
                         const msg = {
-                            error: 'Error Occured'
+                            error
                         }
                         res.send(msg)
                     }else{

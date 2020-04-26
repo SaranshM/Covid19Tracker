@@ -37,6 +37,10 @@ const func = (place,callback)=>{
     request( {url, json:true}, (error,response)=>{
         if(error){
             callback('Error Message',undefined)
+        }else if(response.body.message){
+            callback('Country Not found',undefined)
+        }else if(response.body.length==0){
+            callback('No data to display',undefined)
         }else{
             // console.log(response.body[response.body.length - 1])
             var x =response.body[response.body.length - 1]
