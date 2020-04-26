@@ -387,7 +387,6 @@ ul li:nth-child(6) {
 	.meta-section {
 	  display: flex;
     align-items: center;
-    opacity:0.7;
     box-shadow: -5px 1px 10px black;
   }
   
