@@ -295,7 +295,8 @@ am4core.ready(function() {
     countryPolygon.events.on("hit",function(ev){
         hide();
         console.log(ev.target.dataItem.dataContext.name);
-        axios.post('http://localhost:3000/region/state', {place:ev.target.dataItem.dataContext.name})
+
+        axios.post('http://localhost:3000/region/state', {place:ev.target.dataItem.dataContext.name,country:ev.target.dataItem.dataContext.CNTRY})
             .then(res => {
                 return display_state_data(res.data);
             }

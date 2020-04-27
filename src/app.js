@@ -57,6 +57,8 @@ app.post('/region/:id',post, (req,res) => {
     else if(req.params.id=="state")
     {
         //fetch data for state
+        //fetch country from req.body.country
+        console.log(req.body);
         module.exports = req.body.place
         var func = require('./utils/indian_states.js')
 
