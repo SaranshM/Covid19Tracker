@@ -19,7 +19,6 @@ body {
 {
   width:45vw;
   background-color:#204051;
-  height: 110vh;
   z-index: 2;
 }
 
@@ -185,6 +184,7 @@ input[type=text] {
 #data_wrap
 {
   display:none;
+  margin-bottom:5%;
 }
 
 .data1
@@ -403,12 +403,12 @@ ul li:nth-child(6) {
     margin-bottom: 30%;
   }
 
-  #myChart
+  #myChart1,#myChart2,#myChart3,#myChart4
   {
     width:650px !important;
-    height:300px !important;
-    margin:5% auto;
-    background-color: #e7eff6;
+    height:325px !important;
+    /* background-color: rgba(231, 239, 246,0.9); */
+    margin: 5% auto;
   }
 
 

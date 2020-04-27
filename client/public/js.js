@@ -1,42 +1,183 @@
-function display_charts()
+function display_states_confirmed(state_labels,state_confirmed,confirmed_bg)
 {
-  var ctx = document.getElementById('myChart');
-    var myChart = new Chart(ctx, {
-    type: 'bar',
+  var ctx=document.getElementById('myChart1');
+  var myChart=new Chart(ctx, {
+    type: 'pie',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
+      datasets: [{
+        label: "Confirmed Cases ",
+        backgroundColor: confirmed_bg,
+        data: state_confirmed
+      }]
     },
     options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        }
+      title: {
+        display: true,
+        text: 'Confirmed Cases'
+      }
     }
   });
+}
+
+function display_states_death(state_labels,state_death,death_bg)
+{
+  var ctx=document.getElementById('myChart2');
+  var myChart=new Chart(ctx, {
+    type: 'pie',
+    data: {
+      datasets: [{
+        label: "Deaths",
+        backgroundColor: death_bg,
+        data: state_death
+      }]
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Deaths'
+      }
+    }
+  });
+}
+
+function display_states_active(state_labels,state_active,active_bg)
+{
+  var ctx=document.getElementById('myChart3');
+  var myChart=new Chart(ctx, {
+    type: 'pie',
+    data: {
+      datasets: [{
+        label: "Active cases",
+        backgroundColor: active_bg,
+        data: state_active
+      }]
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Active cases'
+      }
+    }
+  });
+}
+
+function display_states_recovered(state_labels,state_recovered,recovered_bg)
+{
+  var ctx=document.getElementById('myChart4');
+  var myChart=new Chart(ctx, {
+    type: 'pie',
+    data: {
+      datasets: [{
+        label: "Recovered cases",
+        backgroundColor: recovered_bg,
+        data: state_recovered
+      }]
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Recovered cases'
+      }
+    }
+  });
+}
+
+function display_charts(states)
+{
+  var state_labels=[];
+  var state_confirmed=[];
+  var state_death=[];
+  var state_recovered=[];
+  var state_active=[]
+  var confirmed_bg=[];
+  var death_bg=[];
+  var active_bg=[];
+  var recovered_bg=[];
+  var i=0;
+  for(i=0;i<states.length;i++)
+  {
+    state_labels.push(states[i].state);
+    state_confirmed.push(states[i].confirmed);
+    state_death.push(states[i].deaths);
+    state_recovered.push(states[i].recovered);
+    state_active.push(states[i].active);
+  }
+  var init_blue=[12,12,61];
+  var final_blue;
+  var init_red=[61,12,12];
+  var final_red;
+  var init_yellow=[255,255,0];
+  var final_yellow;
+  var init_green=[12,61,12];
+  var final_green;
+  for(i=0;i<states.length;i++)
+  {
+    init_blue[0]=init_blue[0]+10;
+    init_blue[1]=init_blue[1]+10;
+    init_blue[2]=init_blue[2]+10;
+    final_blue="rgb("+init_blue[0]+","+init_blue[1]+","+init_blue[2]+")";
+    confirmed_bg.push(final_blue);
+
+    init_red[0]=init_red[0]+10;
+    init_red[1]=init_red[1]+10;
+    init_red[2]=init_red[2]+10;
+    final_red="rgb("+init_red[0]+","+init_red[1]+","+init_red[2]+")";
+    death_bg.push(final_red);
+
+    init_yellow[0]=init_yellow[0]+10;
+    init_yellow[1]=init_yellow[1]+10;
+    init_yellow[2]=init_yellow[2]+10;
+    final_yellow="rgb("+init_yellow[0]+","+init_yellow[1]+","+init_yellow[2]+")";
+    active_bg.push(final_yellow);
+
+    init_green[0]=init_green[0]+10;
+    init_green[1]=init_green[1]+10;
+    init_green[2]=init_green[2]+10;
+    final_green="rgb("+init_green[0]+","+init_green[1]+","+init_green[2]+")";
+    recovered_bg.push(final_green);
+  }
+
+  display_states_confirmed(state_labels,state_confirmed,confirmed_bg);
+  display_states_death(state_labels,state_death,death_bg);
+  display_states_active(state_labels,state_active,active_bg);
+  display_states_recovered(state_labels,state_recovered,recovered_bg);
+  //   var myChart = new Chart(ctx, {
+  //   type: 'bar',
+  //   data: {
+  //       labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+  //       datasets: [{
+  //           label: '# of Votes',
+  //           data: [12, 19, 3, 5, 2, 3],
+  //           backgroundColor: [
+  //               'rgba(255, 99, 132, 0.2)',
+  //               'rgba(54, 162, 235, 0.2)',
+  //               'rgba(255, 206, 86, 0.2)',
+  //               'rgba(75, 192, 192, 0.2)',
+  //               'rgba(153, 102, 255, 0.2)',
+  //               'rgba(255, 159, 64, 0.2)'
+  //           ],
+  //           borderColor: [
+  //               'rgba(255, 99, 132, 1)',
+  //               'rgba(54, 162, 235, 1)',
+  //               'rgba(255, 206, 86, 1)',
+  //               'rgba(75, 192, 192, 1)',
+  //               'rgba(153, 102, 255, 1)',
+  //               'rgba(255, 159, 64, 1)'
+  //           ],
+  //           borderWidth: 1
+  //       }]
+  //   },
+  //   options: {
+  //       scales: {
+  //           yAxes: [{
+  //               ticks: {
+  //                   beginAtZero: true
+  //               }
+  //           }]
+  //       }
+  //   }
+  // });
+  
 }
 
 function display_data(data){
@@ -49,7 +190,7 @@ function display_data(data){
   document.getElementById('confirm_count').innerHTML=data.confirmed;
   if(data.country=="India")
   {
-    display_charts();
+    display_charts(data.states);
   }
 }
 
