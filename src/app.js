@@ -59,6 +59,7 @@ app.post('/region/:id',post, (req,res) => {
         //fetch data for state
         //fetch country from req.body.country
         console.log(req.body);
+        if(req.body.country=='India'){
         module.exports = req.body.place
         var func = require('./utils/indian_states.js')
 
@@ -73,6 +74,11 @@ app.post('/region/:id',post, (req,res) => {
                         res.send(data)
                     }
                 })
+            }else{
+                res.send({
+                    error: 'Data Not Available yet'
+                })
+            }
 
     }
     else if(req.params.id=='world')
