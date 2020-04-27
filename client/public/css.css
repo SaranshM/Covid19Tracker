@@ -399,10 +399,17 @@ ul li:nth-child(6) {
 
   .name {
     font-size: 25px;
-    font-weigth: 700;
+    font-weight: 700;
     margin-bottom: 30%;
   }
 
+  #myChart
+  {
+    width:650px !important;
+    height:300px !important;
+    margin:5% auto;
+    background-color: #e7eff6;
+  }
 
 
 

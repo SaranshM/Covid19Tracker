@@ -1,13 +1,58 @@
+function display_charts()
+{
+  var ctx = document.getElementById('myChart');
+    var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+  });
+}
+
 function display_data(data){
-  console.log(data);
   document.getElementById('loading').style.display="none";
   document.getElementById('data_wrap').style.display="block";
-  var place=document.getElementById('place_value').innerHTML=data.country;
-  var active=document.getElementById('active_count').innerHTML=data.active;
-  var recovered=document.getElementById('recovered_count').innerHTML=data.recovered;
-  var death=document.getElementById('death_count').innerHTML=data.deaths;
-  var confirm=document.getElementById('confirm_count').innerHTML=data.confirmed;
+  document.getElementById('place_value').innerHTML=data.country;
+  document.getElementById('active_count').innerHTML=data.active;
+  document.getElementById('recovered_count').innerHTML=data.recovered;
+  document.getElementById('death_count').innerHTML=data.deaths;
+  document.getElementById('confirm_count').innerHTML=data.confirmed;
+  if(data.country=="India")
+  {
+    display_charts();
+  }
 }
+
 
 function display_state_data(data){
   document.getElementById('loading').style.display="none";
@@ -128,6 +173,7 @@ function location_track()
       {
         axios.post('http://localhost:3000/region/world',{world:"world"})
             .then(res => {
+              console.log(res.data);
               return display_data(res.data);
             }
         );
@@ -279,25 +325,6 @@ am4core.ready(function() {
     
     
     });
-
-
-    // $(document).ready(function(){
-      
-    //   var countries;
-
-    //   fetch('https://api.covid19api.com/countries', {method: 'GET'}).then(function(response) { 
-    //     return response.json(); 
-    //   }).then(function(json) {
-    //     var i=0;
-    //     for(i=0;i<json.length;i++)
-    //     {
-    //       var node = document.createElement("OPTION");
-    //       var textnode = document.createTextNode(json[i].Country);
-    //       node.appendChild(textnode);
-    //       document.getElementById("department").appendChild(node);
-    //     }
-    //   });
-    // })
 
 
   var button=document.getElementsByTagName("form")[0];
