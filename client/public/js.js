@@ -1,3 +1,5 @@
+
+
 var myChart1;
 var myChart2;
 var myChart3;
@@ -221,10 +223,11 @@ function display_charts(everyday,country)
   var e_death=[];
   var e_recovered=[];
   var e_active=[]
-  var i=0;
+  var i=0,j=0;
   for(i=0;i<everyday.length;i++)
   {
-    e_labels.push("Day "+i+1);
+    j=i+1;
+    e_labels.push("Day "+j);
     e_confirmed.push(everyday[i].confirmed);
     e_death.push(everyday[i].deaths);
     e_recovered.push(everyday[i].recovered);
@@ -250,15 +253,39 @@ function display_data(data){
   display_charts(data.everyday,data.country);
 }
 
+function display_tables(city)
+{
+  console.log(city);
+  var i;
+  var table=document.getElementsByClassName('table-fill')[0];
+  var tbody=document.getElementsByClassName('table-hover')[0].innerHTML="";
+  for(i=0;i<city.length;i++)
+  {
+    var dist="<td>"+city[i].district+"</td>";
+    var conf="<td>"+city[i].confirmed+"</td>";
+    var activex="<td>"+city[i].active+"</td>";
+    var deathx="<td>"+city[i].deaths+"</td>";
+    var rec="<td>"+city[i].recovered+"</td>";
+    var fdata=dist+conf+activex+deathx+rec;
+    var ffdata="<tr>"+fdata+"</tr>";
+    $(table).find('tbody').append(ffdata);
+
+  }
+}
+
 
 function display_state_data(data){
   document.getElementById('loading').style.display="none";
   document.getElementById('data_wrap').style.display="block";
+  document.getElementsByClassName('table-fill')[0].style.display="table";
   var place=document.getElementById('place_value').innerHTML="India"+" - "+data.state;
   var active=document.getElementById('active_count').innerHTML=data.active;
   var recovered=document.getElementById('recovered_count').innerHTML=data.recovered;
   var death=document.getElementById('death_count').innerHTML=data.deaths;
   var confirm=document.getElementById('confirm_count').innerHTML=data.confirmed;
+  console.log(data.districtData);
+  display_tables(data.districtData);
+  display_charts(data.everyday,data.state);
 }
 
 function autocomplete(inp, arr) {
@@ -384,6 +411,7 @@ function hide(){
 
   document.getElementById('loading').style.display="block";
   document.getElementById('data_wrap').style.display="none";
+  document.getElementsByClassName('table-fill')[0].style.display="none";
 }
 
 function change_search_bar(place){
@@ -496,7 +524,12 @@ am4core.ready(function() {
 
         axios.post('http://localhost:3000/region/state', {place:ev.target.dataItem.dataContext.name,country:ev.target.dataItem.dataContext.CNTRY})
             .then(res => {
-                return display_state_data(res.data);
+              console.log(res.data)
+
+                if(!res.data.error)
+                {
+                  return display_state_data(res.data);
+                }
             }
       );
     })
@@ -538,5 +571,7 @@ am4core.ready(function() {
     );
 
   });
+
+  
 
    
