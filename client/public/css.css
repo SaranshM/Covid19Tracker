@@ -338,6 +338,7 @@ ul li:nth-child(6) {
   margin-top:7%;
 }
 
+
 .loading {
   /*  Sketeleton Related */
   		
@@ -397,6 +398,19 @@ ul li:nth-child(6) {
     box-shadow: -5px 1px 10px black;
   }
 
+  .item_wrap2 .meta-section
+  {
+    width:30vw;
+    margin:10% auto;
+
+  }
+
+  .item_wrap2 .meta-section .thumbnail-image
+  {
+    width:100%;
+    height: 200px;
+  }
+
   .name {
     font-size: 25px;
     font-weight: 700;
@@ -405,10 +419,18 @@ ul li:nth-child(6) {
 
   #myChart1,#myChart2,#myChart3,#myChart4
   {
-    width:650px !important;
-    height:325px !important;
+    width:85% !important;
+    height:15% !important;
     /* background-color: rgba(231, 239, 246,0.9); */
+    background-color: rgb(250, 210, 213);
     margin: 5% auto;
+    display:none;
+    box-shadow:-5px 1px 15px black ;
+  }
+
+  #myChart1
+  {
+    margin-top:10%;
   }
 
 
