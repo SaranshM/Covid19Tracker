@@ -54,23 +54,6 @@ const func = (place,callback)=>{
 
             // console.log(response.body[response.body.length - 1])
 
-            if(place!='India'){
-            var x =response.body[response.body.length - 1]
-            var active = x.Confirmed - x.Recovered - x.Deaths
-            var obj = {
-                country: x.Country,
-                countryCode : x.CountryCode,
-                confirmed: x.Confirmed,
-                deaths: x.Deaths,
-                recovered: x.Recovered,
-                active,
-                date : x.Date
-
-            }
-            callback(undefined,obj)
-
-        }else{
-
             var x =response.body[response.body.length - 1]
             var active = x.Confirmed - x.Recovered - x.Deaths
             var obj = {
@@ -84,33 +67,33 @@ const func = (place,callback)=>{
 
             }
 
-            const forstates = (callback)=>{
-
-            const url = 'https://api.covid19india.org/data.json'
+            const everyday = (callback)=>{
+                
+            const url = 'https://api.covid19api.com/total/dayone/country/'+place
 
             request( {url, json:true}, (error,response)=>{
                 if(error){
                     callback({
-                        states: []
+                        everyday: []
                     })
                 }else{
-                    var x =response.body.statewise
+                    var x =response.body
                     var i
                     var arr = []
-                    for(i=1;i<x.length;i++){
+                    for(i=0;i<x.length;i++){
+                        active = x[i].Confirmed - x[i].Recovered - x[i].Deaths
                         elem = {
-                        state: x[i].state,
-                        statecode: x[i].statecode,
-                        confirmed: x[i].confirmed,
-                        active:x[i].active,
-                        recovered: x[i].recovered,
-                        deaths: x[i].deaths
+                        date: x[i].Date,
+                        confirmed: x[i].Confirmed,
+                        active,
+                        recovered: x[i].Recovered,
+                        deaths: x[i].Deaths
                         }
 
                         arr.push(elem)
                     }
                     callback({
-                        states: arr
+                        everyday: arr
                     })
                 }
             } )
@@ -120,7 +103,7 @@ const func = (place,callback)=>{
         }
 
             
-            forstates((objec)=>{
+            everyday((objec)=>{
                 const obj2 = Object.assign(obj,objec)
                 callback(undefined,obj2)
 
@@ -129,7 +112,7 @@ const func = (place,callback)=>{
             // const obj2 = Object.assign(obj,{})
             // callback(undefined,obj2)
 
-        }
+        
 
         }
     } )
