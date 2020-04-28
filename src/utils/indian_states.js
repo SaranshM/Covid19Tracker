@@ -88,12 +88,18 @@ const func = (place,callback)=>{
                         var x =response.body
                         var i
                         var arr = []
+                        var flag = 0
                         for(i=0;i<x.length;i++){
                             if(x[i].statecode==statecode){
+                                flag=1
                                 break
                             }
                         }
-
+                        if(flag==0){
+                            callback({
+                                districtData: arr
+                            })
+                        }else{
                         var length = x[i].districtData.length
                         var j
                         var vari = x[i].districtData
@@ -112,6 +118,7 @@ const func = (place,callback)=>{
                         callback({
                             districtData: arr
                         })
+                    }
                     }
                 } )
 

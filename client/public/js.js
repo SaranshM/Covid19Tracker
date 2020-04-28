@@ -263,8 +263,8 @@ function display_tables(city)
   {
     var dist="<td>"+city[i].district+"</td>";
     var conf="<td>"+city[i].confirmed+"</td>";
-    var activex="<td>"+city[i].active+"</td>";
-    var deathx="<td>"+city[i].deaths+"</td>";
+    var activex="<td>"+city[i].deaths+"</td>";
+    var deathx="<td>"+city[i].active+"</td>";
     var rec="<td>"+city[i].recovered+"</td>";
     var fdata=dist+conf+activex+deathx+rec;
     var ffdata="<tr>"+fdata+"</tr>";
