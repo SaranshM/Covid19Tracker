@@ -449,7 +449,8 @@ ul li:nth-child(6) {
   .table-hover
   {
     display:block;
-    height: 20vw;
+
+    max-height: 25vw;
     overflow-y:scroll;
   }
 
