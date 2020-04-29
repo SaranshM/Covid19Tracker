@@ -242,14 +242,18 @@ function display_charts(everyday,country)
   
 }
 
+function formatNumber(num) {
+  return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+}
+
 function display_data(data){
   document.getElementById('loading').style.display="none";
   document.getElementById('data_wrap').style.display="block";
   document.getElementById('place_value').innerHTML=data.country;
-  document.getElementById('active_count').innerHTML=data.active;
-  document.getElementById('recovered_count').innerHTML=data.recovered;
-  document.getElementById('death_count').innerHTML=data.deaths;
-  document.getElementById('confirm_count').innerHTML=data.confirmed;
+  document.getElementById('active_count').innerHTML=formatNumber(data.active);
+  document.getElementById('recovered_count').innerHTML=formatNumber(data.recovered);
+  document.getElementById('death_count').innerHTML=formatNumber(data.deaths);
+  document.getElementById('confirm_count').innerHTML=formatNumber(data.confirmed);
   display_charts(data.everyday,data.country);
 }
 

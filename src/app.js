@@ -48,7 +48,7 @@ app.post('/region/:id',post, (req,res) => {
                         }
                         res.send(msg)
                     }else{
-                        console.log(data)
+                        // console.log(data)
                         res.send(data);
                     }
                 })
@@ -70,7 +70,7 @@ app.post('/region/:id',post, (req,res) => {
                         }
                         res.send(msg)
                     }else{
-                        console.log(data)
+                        // console.log(data)
                         res.send(data)
                     }
                 })
