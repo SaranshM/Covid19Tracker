@@ -283,10 +283,10 @@ function display_state_data(data){
   document.getElementById('data_wrap').style.display="block";
   document.getElementsByClassName('table-fill')[0].style.display="table";
   var place=document.getElementById('place_value').innerHTML="India"+" - "+data.state;
-  var active=document.getElementById('active_count').innerHTML=data.active;
-  var recovered=document.getElementById('recovered_count').innerHTML=data.recovered;
-  var death=document.getElementById('death_count').innerHTML=data.deaths;
-  var confirm=document.getElementById('confirm_count').innerHTML=data.confirmed;
+  var active=document.getElementById('active_count').innerHTML=formatNumber(data.active);
+  var recovered=document.getElementById('recovered_count').innerHTML=formatNumber(data.recovered);
+  var death=document.getElementById('death_count').innerHTML=formatNumber(data.deaths);
+  var confirm=document.getElementById('confirm_count').innerHTML=formatNumber(data.confirmed);
   console.log(data.districtData);
   display_tables(data.districtData);
   display_charts(data.everyday,data.state);
