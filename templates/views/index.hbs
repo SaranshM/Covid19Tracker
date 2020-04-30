@@ -9,7 +9,6 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyCzIMktvBu1snzyg-X2Eh9qI-BVjkMCUpQ"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 </head>
 <body onload="location_track()">
@@ -18,12 +17,31 @@
 			<div class="header">
 				<h1>COVID-19 Tracker</h1>
 			</div>
+			<div class="search_globe">
 			<form autocomplete="off">
 				<div class="autocomplete">
 					<input id="myInput" type="text" placeholder="Country" required>
 				</div>
 				<button type="submit"><img src="https://img.icons8.com/ios/50/000000/search--v1.png"/></button>
 			</form>
+			<img src="https://img.icons8.com/color/64/000000/europe.png" class="globe_icon" onClick="world_data()"/>			
+			</div>
+			<div id="error1">	
+				<div class="containerx">
+					<div class="alert-box scale-in">
+						<div class="alert-box--icon">
+							<i class="fas fa-exclamation-triangle"></i>
+						</div>
+						<div class="alert-box--content">
+							<h2>Oh no!</h2>
+							<p id="error"></p>
+						</div>
+						<div class="alert-box--button">
+							<a href="#" onClick="world_data()">Dismiss</a>
+						</div>
+					</div>
+				</div>
+			</div>
 			<div id="data_wrap" class="animated fadeIn">
 				<div class="place">
 					<h1 id="place_value">WORLD</h1>

@@ -6,7 +6,7 @@ const func = (place,callback)=>{
 
     request( {url, json:true}, (error,response)=>{
         if(error){
-            callback('Error Message',undefined)
+            callback({msg:'Error Message'},undefined)
         }else{
             var x =response.body.statewise
             var i

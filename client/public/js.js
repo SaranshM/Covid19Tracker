@@ -246,7 +246,52 @@ function formatNumber(num) {
   return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
 }
 
+
+function hide_everything(){
+  document.getElementById("data_wrap").style.display="none";
+  document.getElementById("loading").style.display="none";
+  document.getElementsByClassName("table-fill")[0].style.display="none";
+}
+
 function display_data(data){
+  if(data.msg=="No data to display")
+  {
+    console.log("true");
+    hide_everything();
+    myChart1.destroy();
+    myChart2.destroy();
+    myChart3.destroy();
+    myChart4.destroy();
+    document.getElementById("error").innerHTML="Sorry, we could not find any data for "+data.country+".";
+    document.getElementById("error1").style.display="block";
+    return;
+  }
+  else if(data.msg=='Error Message')
+  {
+    console.log("true");
+    hide_everything();
+    myChart1.destroy();
+    myChart2.destroy();
+    myChart3.destroy();
+    myChart4.destroy();
+    document.getElementById("error").innerHTML="Sorry, we're having trouble fetching data. Please try again.";
+    document.getElementById("error1").style.display="block";
+    return;
+  }
+  else if(data.msg=='Country Not found')
+  {
+    console.log("true");
+    hide_everything();
+    myChart1.destroy();
+    myChart2.destroy();
+    myChart3.destroy();
+    myChart4.destroy();
+    document.getElementById("error").innerHTML="Sorry, we could not find any data for "+data.country+".";
+    document.getElementById("error1").style.display="block";
+    return;
+  }
+  // document.getElementById("error").innerHTML="";
+  // document.getElementById("error1").style.display="none";
   document.getElementById('loading').style.display="none";
   document.getElementById('data_wrap').style.display="block";
   document.getElementById('place_value').innerHTML=data.country;
@@ -254,8 +299,14 @@ function display_data(data){
   document.getElementById('recovered_count').innerHTML=formatNumber(data.recovered);
   document.getElementById('death_count').innerHTML=formatNumber(data.deaths);
   document.getElementById('confirm_count').innerHTML=formatNumber(data.confirmed);
-  display_charts(data.everyday,data.country);
+  if(data.country!="World")
+  {
+    console.log(data.country)
+    display_charts(data.everyday,data.country);
+  }
 }
+
+
 
 function display_tables(city)
 {
@@ -279,7 +330,32 @@ function display_tables(city)
 
 
 function display_state_data(data){
+  if(data.msg=="Error Message")
+  {
+    console.log("true");
+    hide_everything();
+    myChart1.destroy();
+    myChart2.destroy();
+    myChart3.destroy();
+    myChart4.destroy();
+    document.getElementById("error").innerHTML="Sorry, we're having trouble fetching data. Please try again.";
+    document.getElementById("error1").style.display="block";
+    return;
+  }
+  else if(data.msg=="Data Not Available yet")
+  {
+    console.log("true");
+    hide_everything();
+    myChart1.destroy();
+    myChart2.destroy();
+    myChart3.destroy();
+    myChart4.destroy();
+    document.getElementById("error").innerHTML="Sorry, we could not find any data for "+data.country+".";
+    document.getElementById("error1").style.display="block";
+    return;
+  }
   document.getElementById('loading').style.display="none";
+  // document.getElementById("error1").style.display="none";
   document.getElementById('data_wrap').style.display="block";
   document.getElementsByClassName('table-fill')[0].style.display="table";
   var place=document.getElementById('place_value').innerHTML="India"+" - "+data.state;
@@ -382,6 +458,7 @@ autocomplete(document.getElementById("myInput"), countries);
 
 function location_track()
 {
+
   if (navigator.geolocation) {
     var flag=0;
     navigator.geolocation.getCurrentPosition(function(position){
@@ -416,6 +493,8 @@ function hide(){
   document.getElementById('loading').style.display="block";
   document.getElementById('data_wrap').style.display="none";
   document.getElementsByClassName('table-fill')[0].style.display="none";
+  document.getElementById("error").innerHTML="";
+  document.getElementById("error1").style.display="none";
 }
 
 function change_search_bar(place){
@@ -530,10 +609,8 @@ am4core.ready(function() {
             .then(res => {
               console.log(res.data)
 
-                if(!res.data.error)
-                {
-                  return display_state_data(res.data);
-                }
+              return display_state_data(res.data);
+                
             }
       );
     })
@@ -575,6 +652,21 @@ am4core.ready(function() {
     );
 
   });
+
+  function world_data()
+  {
+    hide();
+    myChart1.destroy();
+    myChart2.destroy();
+    myChart3.destroy();
+    myChart4.destroy();
+    axios.post('http://localhost:3000/region/world',{world:"world"})
+            .then(res => {
+              console.log(res.data);
+              return display_data(res.data);
+            }
+        );
+  }
 
   
 

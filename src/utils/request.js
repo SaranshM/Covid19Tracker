@@ -40,15 +40,15 @@ const func = (place,callback)=>{
 
         if(error){
 
-            callback('Error Message',undefined)
+            callback({msg:'Error Message'},undefined)
 
         }else if(response.body.message){
 
-            callback('Country Not found',undefined)
+            callback({msg:'Country Not found',country:place},undefined)
 
         }else if(response.body.length==0){
 
-            callback('No data to display',undefined)
+            callback({msg:'No data to display',country:place},undefined)
 
         }else{
 

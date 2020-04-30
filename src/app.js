@@ -25,9 +25,7 @@ app.get('/', (req,res) => {
 })
 
 app.get('/*',(req,res)=>{
-    res.send({
-        error: 'Page does not Exist'
-    })
+    res.render('error404')
 })
 
 app.post('/region/:id',post, (req,res) => {
@@ -43,10 +41,7 @@ app.post('/region/:id',post, (req,res) => {
 
         func(req.body.place,(error,data)=>{
                     if(error){
-                        const msg = {
-                            error
-                        }
-                        res.send(msg)
+                        res.send(error)
                     }else{
                         // console.log(data)
                         res.send(data);
@@ -65,10 +60,8 @@ app.post('/region/:id',post, (req,res) => {
 
         func(req.body.place,(error,data)=>{
                     if(error){
-                        const msg = {
-                            error: 'Error Occured'
-                        }
-                        res.send(msg)
+                        
+                        res.send(error)
                     }else{
                         // console.log(data)
                         res.send(data)
@@ -76,7 +69,8 @@ app.post('/region/:id',post, (req,res) => {
                 })
             }else{
                 res.send({
-                    error: 'Data Not Available yet'
+                    msg: 'Data Not Available yet',
+                    country:req.body.place
                 })
             }
 
@@ -88,10 +82,7 @@ app.post('/region/:id',post, (req,res) => {
 
         func((error,data)=>{
             if(error){
-                const msg = {
-                    error: 'Error Occured'
-                }
-                res.send(msg)
+                res.send(error)
             }else{
                 console.log(data)
                 res.send(data);
