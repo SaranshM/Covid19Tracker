@@ -6,7 +6,12 @@ const func = (callback)=>{
     request( {url, json:true}, (error,response)=>{
         if(error){
             callback({msg:'Error Message'},undefined)
-        }else{
+        }
+        else if(!response.body.Global)
+        {
+            callback({msg:'Error Message'},undefined)
+        }
+        else{
             var x =response.body.Global
             var active = x.TotalConfirmed - x.TotalDeaths - x.TotalRecovered
             var obj = {
