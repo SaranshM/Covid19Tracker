@@ -23,7 +23,6 @@ body {
   z-index: 2;
   min-height: 100vh;
 }
-
 .right_half
 {
   position: fixed;
