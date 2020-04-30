@@ -274,7 +274,7 @@ function display_data(data){
     myChart2.destroy();
     myChart3.destroy();
     myChart4.destroy();
-    document.getElementById("error").innerHTML="Sorry, we're having trouble fetching data. Please try again.";
+    document.getElementById("error").innerHTML="Sorry, we're having trouble fetching data. Please try again. Please check your internet connectivity.";
     document.getElementById("error1").style.display="block";
     return;
   }
@@ -338,7 +338,7 @@ function display_state_data(data){
     myChart2.destroy();
     myChart3.destroy();
     myChart4.destroy();
-    document.getElementById("error").innerHTML="Sorry, we're having trouble fetching data. Please try again.";
+    document.getElementById("error").innerHTML="Sorry, we're having trouble fetching data. Please try again. Please check your internet connectivity.";
     document.getElementById("error1").style.display="block";
     return;
   }
