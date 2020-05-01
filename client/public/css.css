@@ -825,7 +825,11 @@ a
 	font-size: 10px;
 	color:grey;
 }
-
+.news_main_update
+{
+  font-size: 10px;
+  columns: #000000;
+}
 .desc
 {
 	margin-top:2%;

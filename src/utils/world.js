@@ -59,11 +59,10 @@ const func = (callback)=>{
                     }
 
 
-                    const length = data.rss.channel.item.length
                     var x =data.rss.channel.item
                     var i
 
-                    for(i=0;i<length;i++){
+                    for(i=0;i<7;i++){
 
                         elem = {
                             title: x[i].title._text,
