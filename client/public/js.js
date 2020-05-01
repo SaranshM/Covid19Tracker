@@ -55,6 +55,7 @@ function display_states_confirmed(e_labels,e_confirmed,country)
       } 
     }
   });
+  myChart1.fontSize=2;
 }
 
 function display_states_death(e_labels,e_death,country)
@@ -275,10 +276,18 @@ function display_data(data){
   {
     console.log("true");
     hide_everything();
-    myChart1.destroy();
-    myChart2.destroy();
-    myChart3.destroy();
-    myChart4.destroy();
+    if (myChart1) {
+      myChart1.destroy();
+    }
+    if (myChart2) {
+      myChart2.destroy();
+    }
+    if (myChart3) {
+      myChart3.destroy();
+    }
+    if (myChart4) {
+      myChart4.destroy();
+    }
     document.getElementById("error").innerHTML="Sorry, we could not find any data for "+data.country+".";
     document.getElementById("error1").style.display="block";
     return;
@@ -307,10 +316,18 @@ function display_data(data){
   {
     console.log("true");
     hide_everything();
-    myChart1.destroy();
-    myChart2.destroy();
-    myChart3.destroy();
-    myChart4.destroy();
+    if (myChart1) {
+      myChart1.destroy();
+    }
+    if (myChart2) {
+      myChart2.destroy();
+    }
+    if (myChart3) {
+      myChart3.destroy();
+    }
+    if (myChart4) {
+      myChart4.destroy();
+    }
     document.getElementById("error").innerHTML="Sorry, we could not find any data for "+data.country+".";
     document.getElementById("error1").style.display="block";
     return;
@@ -366,10 +383,18 @@ function display_state_data(data){
   {
     console.log("true");
     hide_everything();
-    myChart1.destroy();
-    myChart2.destroy();
-    myChart3.destroy();
-    myChart4.destroy();
+    if (myChart1) {
+      myChart1.destroy();
+    }
+    if (myChart2) {
+      myChart2.destroy();
+    }
+    if (myChart3) {
+      myChart3.destroy();
+    }
+    if (myChart4) {
+      myChart4.destroy();
+    }
     document.getElementById("error").innerHTML="Sorry, we're having trouble fetching data. Please try again. Please check your internet connectivity.";
     document.getElementById("error1").style.display="block";
     return;
@@ -378,10 +403,18 @@ function display_state_data(data){
   {
     console.log("true");
     hide_everything();
-    myChart1.destroy();
-    myChart2.destroy();
-    myChart3.destroy();
-    myChart4.destroy();
+    if (myChart1) {
+      myChart1.destroy();
+    }
+    if (myChart2) {
+      myChart2.destroy();
+    }
+    if (myChart3) {
+      myChart3.destroy();
+    }
+    if (myChart4) {
+      myChart4.destroy();
+    }
     document.getElementById("error").innerHTML="Sorry, we could not find any data for "+data.country+".";
     document.getElementById("error1").style.display="block";
     return;
@@ -689,10 +722,18 @@ am4core.ready(function() {
   function world_data()
   {
     hide();
-    myChart1.destroy();
-    myChart2.destroy();
-    myChart3.destroy();
-    myChart4.destroy();
+    if (myChart1) {
+      myChart1.destroy();
+    }
+    if (myChart2) {
+      myChart2.destroy();
+    }
+    if (myChart3) {
+      myChart3.destroy();
+    }
+    if (myChart4) {
+      myChart4.destroy();
+    }
     axios.post('http://localhost:3000/region/world',{world:"world"})
             .then(res => {
               console.log(res.data);

@@ -206,5 +206,291 @@
     {
         width:75vw;
     }
+
+    .header h1
+    {
+        font-size: 6vw;
+    }
+
+    #place_value
+    {
+        font-size:6vw;
+    }
 }
 
+@media only screen and (max-width:415px)
+{
+    .death,.active,.recovered,.confirm
+    {
+        width:22vw;
+        padding:1.5%;
+        border-radius: 7.5px;
+        box-shadow: -5px 1px 10px rgba(0,0,0,0.7);
+        opacity:0.95;
+        transition: 0.2s;
+    }
+
+    .death p:first-child,.active p:first-child,.recovered p:first-child,.confirm p:first-child
+    {
+        font-weight: bold;
+        color:rgb(50,50,50);
+        font-size:2.8vw;
+    }
+
+    .death p:last-child,.active p:last-child,.recovered p:last-child,.confirm p:last-child
+    {
+        margin-top:10%;
+        text-align: center;
+        font-size: 2.8vw;
+        font-weight: bolder;
+        color:rgb(50,50,50);
+    }
+
+    #myInput
+    {
+        font-size:2.5vw;
+    }
+
+    #myChart1
+    {
+        margin-top:10%;
+    }
+
+    .news_wrap
+    {
+        font-family: 'Roboto Mono', monospace;
+        display:none;
+        width:80vw;
+        margin: 10% auto 0 auto;
+        background-color: transparent;
+        box-shadow: -5px 10px 20px black;
+        border-radius: 10px 10px 10px 10px;
+    }
+
+    .news_title_head h1
+    {
+        font-size:3vw;
+        border-radius:10px 10px 0 0;
+    }
+
+    .news_block
+    {
+        background-color: #eee;
+    }
+
+    .news_title
+    {
+        font-size: 2.8vw;
+        border-radius:0px 0px 10px 10px;
+    }
+
+    th{
+        font-size: 2vw;
+    }
+    tr
+    {
+        text-align: left;
+    }
+    td
+    {
+        text-align:left;
+        font-size:2vw;
+        padding-left:5px;
+    }
+    .table-fill
+    {
+        width:87vw;
+    }
+
+    .header h1
+    {
+        font-size: 6vw;
+    }
+
+    #place_value
+    {
+        font-size:6vw;
+    }
+
+    #myChart1,#myChart2,#myChart3,#myChart4
+    {
+        width:87% !important;
+        height:30% !important;
+        /* background-color: rgba(231, 239, 246,0.9); */
+        background-color: rgb(250, 210, 213);
+        margin: 5% auto;
+        display:none;
+        box-shadow:-5px 1px 15px black ;
+    }
+
+    #myChart1
+    {
+        margin-top:10%;
+    }
+
+    .alert-box
+    {
+        position: relative;
+        top:15%;
+    }
+
+}
+
+@media only screen and (max-width:378px)
+{
+    .death,.active,.recovered,.confirm
+    {
+        width:22vw;
+        padding:1.5%;
+        border-radius: 7.5px;
+        box-shadow: -5px 1px 10px rgba(0,0,0,0.7);
+        opacity:0.95;
+        transition: 0.2s;
+    }
+
+    .death p:first-child,.active p:first-child,.recovered p:first-child,.confirm p:first-child
+    {
+        font-weight: bold;
+        color:rgb(50,50,50);
+        font-size:2.8vw;
+    }
+
+    .death p:last-child,.active p:last-child,.recovered p:last-child,.confirm p:last-child
+    {
+        margin-top:10%;
+        text-align: center;
+        font-size: 2.8vw;
+        font-weight: bolder;
+        color:rgb(50,50,50);
+    }
+
+    #myInput
+    {
+        font-size:2.5vw;
+    }
+
+    #myChart1
+    {
+        margin-top:10%;
+    }
+
+    .news_wrap
+    {
+        font-family: 'Roboto Mono', monospace;
+        display:none;
+        width:80vw;
+        margin: 10% auto 0 auto;
+        background-color: transparent;
+        box-shadow: -5px 10px 20px black;
+        border-radius: 10px 10px 10px 10px;
+    }
+
+    .news_title_head h1
+    {
+        font-size:3vw;
+        border-radius:10px 10px 0 0;
+    }
+
+    .news_block
+    {
+        background-color: #eee;
+    }
+
+    .news_title
+    {
+        font-size: 2.8vw;
+        border-radius:0px 0px 10px 10px;
+    }
+
+    th{
+        font-size: 2vw;
+    }
+    tr
+    {
+        text-align: left;
+    }
+    td
+    {
+        text-align:left;
+        font-size:2vw;
+        padding-left:5px;
+    }
+    .table-fill
+    {
+        width:87vw;
+    }
+
+    .header h1
+    {
+        font-size: 6vw;
+    }
+
+    #place_value
+    {
+        font-size:6vw;
+    }
+
+    #myChart1,#myChart2,#myChart3,#myChart4
+    {
+        width:87% !important;
+        height:30% !important;
+        /* background-color: rgba(231, 239, 246,0.9); */
+        background-color: rgb(250, 210, 213);
+        margin: 5% auto;
+        display:none;
+        box-shadow:-5px 1px 15px black ;
+    }
+
+    #myChart1
+    {
+        margin-top:10%;
+    }
+
+    .alert-box
+    {
+        position: relative;
+        top:15%;
+    }
+
+    #myInput
+    {
+        height: 30px;
+    }
+
+    button
+    {
+        height: 30px;
+    }
+
+    button img
+    {
+        width:50%;
+    }
+
+    .globe_icon
+    {
+        height: 35px;
+        width:35px;
+    }
+
+}
+
+@media only screen and (max-width:320px)
+{
+    #myChart1,#myChart2,#myChart3,#myChart4
+    {
+        width:95% !important;
+        height:150px !important;
+        /* background-color: rgba(231, 239, 246,0.9); */
+        background-color: rgb(250, 210, 213);
+        margin: 5% auto;
+        display:none;
+        box-shadow:-5px 1px 15px black ;
+    }
+
+    #myChart1
+    {
+        margin-top:10%;
+    }
+
+}
