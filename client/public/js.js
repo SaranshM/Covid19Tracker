@@ -327,10 +327,12 @@ function display_data(data){
   if(data.country!="World")
   {
     console.log(data.country)
+    document.getElementsByClassName("news_wrap")[0].style.display="none";
     display_charts(data.everyday,data.country);
   }
   else if(data.country=="World")
   {
+
     display_news(data.news);
   }
 
@@ -388,6 +390,7 @@ function display_state_data(data){
   // document.getElementById("error1").style.display="none";
   document.getElementById('data_wrap').style.display="block";
   document.getElementsByClassName('table-fill')[0].style.display="table";
+  document.getElementsByClassName("news_wrap")[0].style.display="none";
   var place=document.getElementById('place_value').innerHTML="India"+" - "+data.state;
   var active=document.getElementById('active_count').innerHTML=formatNumber(data.active);
   var recovered=document.getElementById('recovered_count').innerHTML=formatNumber(data.recovered);

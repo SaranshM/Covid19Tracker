@@ -78,7 +78,6 @@ form
   height: 9%;
   margin-top:4%;
   cursor:pointer;
-  box-shadow: -5px 5px 10px black;
 }
 
 #myInput
@@ -774,15 +773,11 @@ ul li:nth-child(6) {
   }
 
 
-
-  
-
-
 .news_wrap
 {
 
 	font-family: 'Roboto Mono', monospace;
-  display:block;
+  display:none;
   width:40vw;
   margin: 10% auto;
   background-color: #eee;
