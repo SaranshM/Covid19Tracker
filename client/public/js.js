@@ -253,6 +253,23 @@ function hide_everything(){
   document.getElementsByClassName("table-fill")[0].style.display="none";
 }
 
+function display_news(data)
+{
+  console.log(data);
+  document.getElementsByClassName("news_wrap")[0].style.display='block';
+  news=data.items;
+  var i=0;
+
+  for(i=0;i<7;i++)
+  {
+    var title=news[i].title;
+    var updated=news[i].updated;
+    var desc=news[i].description;
+    document.getElementsByClassName("news_title")[i].innerHTML=desc;
+    document.getElementsByClassName("news_update")[i].innerHTML=updated;
+  }
+}
+
 function display_data(data){
   if(data.msg=="No data to display")
   {
@@ -270,10 +287,18 @@ function display_data(data){
   {
     console.log("true");
     hide_everything();
-    myChart1.destroy();
-    myChart2.destroy();
-    myChart3.destroy();
-    myChart4.destroy();
+    if (myChart1) {
+      myChart1.destroy();
+    }
+    if (myChart2) {
+      myChart2.destroy();
+    }
+    if (myChart3) {
+      myChart3.destroy();
+    }
+    if (myChart4) {
+      myChart4.destroy();
+    }
     document.getElementById("error").innerHTML="Sorry, we're having trouble fetching data. Please try again. Please check your internet connectivity.";
     document.getElementById("error1").style.display="block";
     return;
@@ -304,6 +329,11 @@ function display_data(data){
     console.log(data.country)
     display_charts(data.everyday,data.country);
   }
+  else if(data.country=="World")
+  {
+    display_news(data.news);
+  }
+
 }
 
 
