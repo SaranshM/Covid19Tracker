@@ -441,7 +441,8 @@ ul li:nth-child(6) {
     width:85% !important;
     height:15% !important;
     /* background-color: rgba(231, 239, 246,0.9); */
-    background-color: rgb(250, 210, 213);
+/*     background-color: rgb(250, 210, 213); */
+    background-color: #e7eff6;
     margin: 5% auto;
     display:none;
     box-shadow:-5px 1px 15px black ;
