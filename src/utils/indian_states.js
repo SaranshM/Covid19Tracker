@@ -9,6 +9,12 @@ const func = (place,callback)=>{
             callback({msg:'Error Message'},undefined)
         }else{
             var x =response.body.statewise
+            var states=[];
+            for(i=0;i<x.length;i++)
+            {
+                states.push(x[i].state);
+            }
+            console.log(states);
             var i
             for(i=0;i<x.length;i++){
                 if(place==x[i].state){
