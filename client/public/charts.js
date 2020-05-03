@@ -53,7 +53,14 @@ function display_states_confirmed(e_labels,e_confirmed,country)
       } 
     }
   });
-  myChart1.fontSize=2;
+  if(screen.width<=415)
+  {
+    myChart1.options.title.fontSize=10;
+    myChart1.options.scales.yAxes[0].ticks.fontSize=8;
+    myChart1.options.scales.xAxes[0].ticks.fontSize=8;
+    myChart1.options.legend.labels.fontSize=10;
+  }
+
 }
 
 function display_states_death(e_labels,e_death,country)
@@ -107,6 +114,13 @@ function display_states_death(e_labels,e_death,country)
       } 
     }
   });
+  if(screen.width<=415)
+  {
+    myChart2.options.title.fontSize=10;
+    myChart2.options.scales.yAxes[0].ticks.fontSize=8;
+    myChart2.options.scales.xAxes[0].ticks.fontSize=8;
+    myChart2.options.legend.labels.fontSize=10;
+  }
 }
 
 function display_states_active(e_labels,e_active,country)
@@ -160,13 +174,22 @@ function display_states_active(e_labels,e_active,country)
       } 
     }
   });
+  if(screen.width<=415)
+  {
+    myChart3.options.title.fontSize=10;
+    myChart3.options.scales.yAxes[0].ticks.fontSize=8;
+    myChart3.options.scales.xAxes[0].ticks.fontSize=8;
+    myChart3.options.legend.labels.fontSize=10;
+  }
 }
 
 function display_states_recovered(e_labels,e_recovered,country)
 {
+  
   if (myChart4) {
     myChart4.destroy();
   }
+  
   var ctx=document.getElementById('myChart4');
   myChart4=new Chart(ctx, {
     type: 'line',
@@ -213,6 +236,13 @@ function display_states_recovered(e_labels,e_recovered,country)
       } 
     }
   });
+  if(screen.width<=415)
+  {
+    myChart4.options.title.fontSize=10;
+    myChart4.options.scales.yAxes[0].ticks.fontSize=8;
+    myChart4.options.scales.xAxes[0].ticks.fontSize=8;
+    myChart4.options.legend.labels.fontSize=10;
+  }
 }
 
 function display_charts(everyday,country,val=1)
@@ -245,9 +275,9 @@ function display_charts(everyday,country,val=1)
     {
       j=i+1;
       e_labels.push("Day "+j);
-      e_confirmed.push(everyday[i].confirmed-everyday[i-1].confirmed);
-      e_death.push(everyday[i].deaths-everyday[i-1].deaths);
-      e_recovered.push(everyday[i].recovered-everyday[i-1].recovered);
+      e_confirmed.push(Math.max(everyday[i].confirmed-everyday[i-1].confirmed,0));
+      e_death.push(Math.max(everyday[i].deaths-everyday[i-1].deaths,0));
+      e_recovered.push(Math.max(everyday[i].recovered-everyday[i-1].recovered,0));
       e_active.push(everyday[i].active);
     }
   }

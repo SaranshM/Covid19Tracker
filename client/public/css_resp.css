@@ -30,7 +30,7 @@
 
     form
     {
-        margin-bottom:1%;
+        margin-bottom:0%;
     }
 
     #chartdiv
@@ -47,7 +47,7 @@
     {
         width:20vw;
         padding:1.5%;
-        border-radius: 10px;
+        border-radius: 5px;
         box-shadow: -5px 1px 10px rgba(0,0,0,0.7);
         opacity:0.95;
         transition: 0.2s;
@@ -62,7 +62,7 @@
 
     .death p:last-child,.active p:last-child,.recovered p:last-child,.confirm p:last-child
     {
-        margin-top:10%;
+        margin-top:7.5%;
         text-align: center;
         font-size: 1.8vw;
         font-weight: bolder;
@@ -84,22 +84,20 @@
         width:75vw;
     }
 
-    
-
     #myChart1,#myChart2,#myChart3,#myChart4
     {
         width:75% !important;
         height:15% !important;
         /* background-color: rgba(231, 239, 246,0.9); */
-        background-color: rgb(250, 210, 213);
-        margin: 5% auto;
+        background-color: #e7eff6;
+        margin: 5% auto 0 auto;
         display:none;
         box-shadow:-5px 1px 15px black ;
     }
 
     #myChart1
     {
-        margin-top:10%;
+        margin-top:5%;
     }
 
     .table-hover
@@ -112,10 +110,10 @@
         font-family: 'Roboto Mono', monospace;
         display:none;
         width:65vw;
-        margin: 10% auto 0 auto;
+        margin: 7% auto 0 auto;
         background-color: #eee;
         box-shadow: -5px 10px 20px black;
-        border-radius: 15px 15px 15px 15px;
+        border-radius: 5px 5px 5px 5px;
     }
 
     .news_title_head h1
@@ -127,6 +125,45 @@
     {
         font-size: 1.6vw;
     }
+
+    .cum h1,.daily h1
+    {
+        font-size:1.8vw;
+    }
+
+    .cum
+    {
+        margin-right:2%;
+    }
+
+    .daily
+    {
+        margin-left:2%;
+    }
+
+    .container .meta-section .thumbnail-image {
+        width:20vw;
+        height: 10vw;
+    }
+
+    .meta-information {
+        width:20vw;
+        height: 40px;
+        margin:0 auto;
+      }
+    
+      .item_wrap2 .meta-section
+      {
+        width:70vw;
+        margin:5% auto;
+    
+      }
+      
+      .item_wrap2 .meta-section .thumbnail-image
+        {
+            width:100%;
+            height: 300px;
+        }
 }
 
 @media only screen and (max-width:500px)
@@ -135,7 +172,7 @@
     {
         width:20vw;
         padding:1.5%;
-        border-radius: 10px;
+        border-radius: 5px;
         box-shadow: -5px 1px 10px rgba(0,0,0,0.7);
         opacity:0.95;
         transition: 0.2s;
@@ -216,6 +253,63 @@
     {
         font-size:6vw;
     }
+
+    .cum h1,.daily h1
+    {
+        font-size:2.3vw;
+    }
+
+    .cum
+    {
+        margin-right:2%;
+    }
+
+    .daily
+    {
+        margin-left:2%;
+    }
+
+    .container .meta-section .thumbnail-image {
+        width:20vw;
+        height: 10vw;
+    }
+
+    .meta-information {
+        width:20vw;
+        height: 40px;
+        margin:0 auto;
+      }
+    
+      .item_wrap2 .meta-section
+      {
+        width:70vw;
+        margin:5% auto;
+    
+      }
+      
+      .item_wrap2 .meta-section .thumbnail-image
+        {
+            width:100%;
+            height: 170px;
+        }
+
+        #myChart1,#myChart2,#myChart3,#myChart4
+        {
+            width:75% !important;
+            height:15% !important;
+            /* background-color: rgba(231, 239, 246,0.9); */
+            background-color: #e7eff6;
+            margin: 2.5% auto 0 auto;
+            display:none;
+            box-shadow:-5px 1px 15px black ;
+        }
+
+        #myChart1
+        {
+            margin-top:5%;
+        }
+
+        
 }
 
 @media only screen and (max-width:415px)
@@ -224,7 +318,7 @@
     {
         width:22vw;
         padding:1.5%;
-        border-radius: 7.5px;
+        border-radius: 3px;
         box-shadow: -5px 1px 10px rgba(0,0,0,0.7);
         opacity:0.95;
         transition: 0.2s;
@@ -317,15 +411,15 @@
         width:87% !important;
         height:30% !important;
         /* background-color: rgba(231, 239, 246,0.9); */
-        background-color: rgb(250, 210, 213);
-        margin: 5% auto;
+        background-color: #e7eff6;
+        margin: 5% auto 0 auto;
         display:none;
         box-shadow:-5px 1px 15px black ;
     }
 
     #myChart1
     {
-        margin-top:10%;
+        margin-top:5%;
     }
 
     .alert-box
@@ -334,6 +428,45 @@
         top:15%;
     }
 
+
+    .cum h1,.daily h1
+    {
+        font-size:2.8vw;
+    }
+
+    .cum
+    {
+        margin-right:1%;
+    }
+
+    .daily
+    {
+        margin-left:1%;
+    }
+
+    .container .meta-section .thumbnail-image {
+        width:20vw;
+        height: 10vw;
+    }
+
+    .meta-information {
+        width:20vw;
+        height: 40px;
+        margin:0 auto;
+      }
+    
+      .item_wrap2 .meta-section
+      {
+        width:70vw;
+        margin:5% auto;
+    
+      }
+      
+      .item_wrap2 .meta-section .thumbnail-image
+        {
+            width:100%;
+            height: 140px;
+        }
 }
 
 @media only screen and (max-width:378px)
@@ -342,7 +475,7 @@
     {
         width:22vw;
         padding:1.5%;
-        border-radius: 7.5px;
+        border-radius: 5px;
         box-shadow: -5px 1px 10px rgba(0,0,0,0.7);
         opacity:0.95;
         transition: 0.2s;
@@ -435,8 +568,8 @@
         width:87% !important;
         height:30% !important;
         /* background-color: rgba(231, 239, 246,0.9); */
-        background-color: rgb(250, 210, 213);
-        margin: 5% auto;
+        background-color: #e7eff6;
+        margin: 5% auto 0 auto;
         display:none;
         box-shadow:-5px 1px 15px black ;
     }
@@ -473,6 +606,45 @@
         width:35px;
     }
 
+    .cum h1,.daily h1
+    {
+        font-size:2.8vw;
+    }
+
+    .cum
+    {
+        margin-right:1%;
+    }
+
+    .daily
+    {
+        margin-left:1%;
+    }
+
+    .container .meta-section .thumbnail-image {
+        width:20vw;
+        height: 10vw;
+    }
+
+    .meta-information {
+        width:20vw;
+        height: 40px;
+        margin:0 auto;
+      }
+    
+      .item_wrap2 .meta-section
+      {
+        width:70vw;
+        margin:5% auto;
+    
+      }
+      
+      .item_wrap2 .meta-section .thumbnail-image
+        {
+            width:100%;
+            height: 140px;
+        }
+
 }
 
 @media only screen and (max-width:320px)
@@ -482,7 +654,7 @@
         width:95% !important;
         height:150px !important;
         /* background-color: rgba(231, 239, 246,0.9); */
-        background-color: rgb(250, 210, 213);
+        background-color: #e7eff6;
         margin: 5% auto;
         display:none;
         box-shadow:-5px 1px 15px black ;
