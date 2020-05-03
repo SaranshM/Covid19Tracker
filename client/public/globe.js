@@ -78,6 +78,7 @@ am4core.ready(function() {
       console.log(ev.target.dataItem.dataContext.name);
       axios.post('http://localhost:3000/region/country', {place:ev.target.dataItem.dataContext.name})
             .then(res => {
+              console.log(res.data);
               return display_data(res.data);
             }
       );

@@ -42,7 +42,7 @@ function display_state_data(data){
   }
   else if(data.msg=="Data Not Available yet")
   {
-    console.log("true");
+    console.log("truexxxx");
     hide_everything();
     if (myChart1) {
       myChart1.destroy();

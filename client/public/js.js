@@ -52,6 +52,10 @@ function change_search_bar(place){
     var placex=document.getElementsByTagName('input')[0].value;
     axios.post('http://localhost:3000/region/country', {place:placex})
             .then(res => {
+              if(res.data.state)
+              {
+                return display_state_data(res.data);
+              }
               return display_data(res.data);
             }
     );

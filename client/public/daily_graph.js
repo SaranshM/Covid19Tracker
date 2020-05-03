@@ -79,7 +79,7 @@ function cum_graph()
       axios.post('http://localhost:3000/region/state', {place:for_state[1],country:for_state[0]})
           .then(res => {
               console.log(res.data);
-              display_charts(res.data.everyday,for_state[1],0);
+              display_charts(res.data.everyday,for_state[1]);
               
           }).catch(()=>{
             console.log("Location denied.");
