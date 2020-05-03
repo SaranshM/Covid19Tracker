@@ -14,7 +14,7 @@ const func = (place,callback)=>{
             {
                 states.push(x[i].state);
             }
-            console.log(states);
+            // console.log(states);
             var i
             for(i=0;i<x.length;i++){
                 if(place==x[i].state){
@@ -48,7 +48,7 @@ const func = (place,callback)=>{
                         var str2 = 0
                         var str3 =0
                         while(i<x.length-1){
-                            str1 += parseInt(x[i][statecode])
+                            str1 += parseInt(x[i][statecode]) || 0
                             active = str1
                             elem = {
                             date: x[i].date,

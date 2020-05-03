@@ -34,6 +34,66 @@ app.post('/region/:id',post, (req,res) => {
     console.log(d.getFullYear());
     if(req.params.id=="country")
     {
+        list_of_states = [
+            'Maharashtra',
+            'Gujarat',
+            'Delhi',
+            'Madhya Pradesh',
+            'Rajasthan',
+            'Tamil Nadu',
+            'Uttar Pradesh',
+            'Andhra Pradesh',
+            'Telangana',
+            'West Bengal',
+            'Jammu and Kashmir',
+            'Karnataka',
+            'Kerala',
+            'Bihar',
+            'Punjab',
+            'Haryana',
+            'Odisha',
+            'Jharkhand',
+            'Chandigarh',
+            'Uttarakhand',
+            'Himachal Pradesh',
+            'Assam',
+            'Chhattisgarh',
+            'Andaman and Nicobar Islands',
+            'Ladakh',
+            'Meghalaya',
+            'Puducherry',
+            'Goa',
+            'Manipur',
+            'Tripura',
+            'Mizoram',
+            'Arunachal Pradesh',
+            'Nagaland',
+            'Dadra and Nagar Haveli',
+            'Daman and Diu',
+            'Lakshadweep',
+            'Sikkim'
+          ]
+          var i
+          var flag = 0 
+          for(i=0;i<list_of_states.length;i++){
+            if(req.body.place.toLowerCase()==list_of_states[i].toLowerCase()){
+                flag = 1
+            }
+          }
+          if(flag==1){
+            module.exports = req.body.place
+            var func = require('./utils/indian_states.js')
+    
+            func(req.body.place,(error,data)=>{
+                        if(error){
+                            
+                            res.send(error)
+                        }else{
+                            // console.log(data)
+                            res.send(data)
+                        }
+                    })
+          }else{
         //fetch data for country
         console.log(req.body.place);
         module.exports = req.body.place;
@@ -47,13 +107,14 @@ app.post('/region/:id',post, (req,res) => {
                         res.send(data);
                     }
                 })
+            }
 
     }
     else if(req.params.id=="state")
     {
         //fetch data for state
         //fetch country from req.body.country
-        console.log(req.body);
+        // console.log(req.body);
         if(req.body.country=='India'){
         module.exports = req.body.place
         var func = require('./utils/indian_states.js')

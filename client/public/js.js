@@ -34,7 +34,15 @@ function location_track()
 
 /*-----------*/
 
+//In the below function work is the id of input field (in this case myInput) and myfunc() is the function to be called on pressing enter
 
+// document.getElementById("work").addEventListener("keyup",function(event){
+//   event.preventDefault();
+//   if(event.keyCode===13){
+//   myfunc();
+//   }
+  
+//   });
 
 function formatNumber(num) {
   return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
@@ -44,6 +52,7 @@ function formatNumber(num) {
 function change_search_bar(place){
   document.getElementsByTagName('input')[0].value=place;
 }
+
 
   var button=document.getElementsByTagName("form")[0];
   button.addEventListener('submit',(e)=>{
