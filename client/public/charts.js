@@ -215,22 +215,41 @@ function display_states_recovered(e_labels,e_recovered,country)
   });
 }
 
-function display_charts(everyday,country)
+function display_charts(everyday,country,val=1)
 {
   var e_labels=[];
   var e_confirmed=[];
   var e_death=[];
   var e_recovered=[];
-  var e_active=[]
+  var e_active=[];
   var i=0,j=0;
-  for(i=0;i<everyday.length;i++)
+  if(val==1)
   {
-    j=i+1;
-    e_labels.push("Day "+j);
-    e_confirmed.push(everyday[i].confirmed);
-    e_death.push(everyday[i].deaths);
-    e_recovered.push(everyday[i].recovered);
-    e_active.push(everyday[i].active);
+    document.getElementsByClassName("daily")[0].style.opacity=0.8;
+    document.getElementsByClassName("cum")[0].style.opacity=1;
+    for(i=0;i<everyday.length;i++)
+    {
+      j=i+1;
+      e_labels.push("Day "+j);
+      e_confirmed.push(everyday[i].confirmed);
+      e_death.push(everyday[i].deaths);
+      e_recovered.push(everyday[i].recovered);
+      e_active.push(everyday[i].active);
+    }
+  }
+  if(val==0)
+  {
+    document.getElementsByClassName("daily")[0].style.opacity=1;
+    document.getElementsByClassName("cum")[0].style.opacity=0.8;
+    for(i=1;i<everyday.length;i++)
+    {
+      j=i+1;
+      e_labels.push("Day "+j);
+      e_confirmed.push(everyday[i].confirmed-everyday[i-1].confirmed);
+      e_death.push(everyday[i].deaths-everyday[i-1].deaths);
+      e_recovered.push(everyday[i].recovered-everyday[i-1].recovered);
+      e_active.push(everyday[i].active);
+    }
   }
   
 

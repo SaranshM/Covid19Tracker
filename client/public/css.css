@@ -63,7 +63,6 @@ form
   /* width:35vw; */
   text-align: center;
   margin-top:5% ;
-  margin-bottom: 5%;
   display:flex;
   /* justify-content: center; */
 
@@ -105,6 +104,7 @@ button
   cursor: pointer;
   transition: .3s;
   opacity: 0.9;
+  height: 50px;
 }
 
 button:hover
@@ -197,7 +197,7 @@ input[type=text] {
   text-align: center;
   font-weight: bold;
   letter-spacing: 1px;
-  margin:7% 0;
+  margin:5% 0 5% 0;
 }
 
 #data_wrap
@@ -216,7 +216,7 @@ input[type=text] {
 {
   width:10vw;
   padding:1.5%;
-  border-radius: 10px;
+  border-radius: 5px;
   box-shadow: -5px 1px 10px rgba(0,0,0,0.7);
   opacity:0.95;
   transition: 0.2s;
@@ -316,7 +316,6 @@ background-image: linear-gradient(315deg, #ef5734 0%, #ffcc2f 74%);
 	  animation: left-to-right 1.2s ease-in-out infinite;
 	  z-index: 2;
     content: "";
-    border-radius:10px;
 	}
 	@keyframes left-to-right {
 	  0% {
@@ -333,19 +332,16 @@ background-image: linear-gradient(315deg, #ef5734 0%, #ffcc2f 74%);
 	.container .meta-section .thumbnail-image {
     width:10vw;
     height: 6vw;
-    border-radius:10px;
 	}
 	.meta-section {
 	  display: flex;
     align-items: center;
-    box-shadow: -5px 1px 10px black;
   }
   
   .meta-information {
     width:10vw;
     height: 40px;
     margin:0 auto;
-    box-shadow: -5px 1px 10px black;
   }
 
   .item_wrap2 .meta-section
@@ -378,14 +374,14 @@ background-image: linear-gradient(315deg, #ef5734 0%, #ffcc2f 74%);
     /* background-color: rgba(231, 239, 246,0.9); */
 /*     background-color: rgb(250, 210, 213); */
     background-color: #e7eff6;
-    margin: 5% auto;
+    margin: 5% auto 0 auto;
     display:none;
     box-shadow:-5px 1px 15px black ;
   }
 
   #myChart1
   {
-    margin-top:10%;
+    margin-top:5%;
   }
 
   /*--------------*/
@@ -398,7 +394,7 @@ background-image: linear-gradient(315deg, #ef5734 0%, #ffcc2f 74%);
     border-collapse: collapse;
     display:none;
     
-    margin: 10% auto;
+    margin: 5% auto 10% auto;
     width:95%;
     padding:5px;
     box-shadow: -5px 1px 10px rgba(0, 0, 0);
@@ -723,22 +719,21 @@ background-image: linear-gradient(315deg, #ef5734 0%, #ffcc2f 74%);
 	font-family: 'Roboto Mono', monospace;
   display:none;
   width:40vw;
-  margin: 10% auto;
+  margin: 7% auto 0 auto;
   background-color: #eee;
 
   box-shadow: -5px 10px 20px black;
-    border-radius: 15px 15px 15px 15px;
+    border-radius: 5px 5px 5px 5px;
 
 
 }
 
 .news_title_head
 {
-  background-color: #f94327;
-  background-image: linear-gradient(316deg, #f94327 0%, #ff7d14 74%);
+  background-color: #E63946;
   padding:2% 3%;
   border-bottom: solid black 3px;
-  border-radius: 15px 15px 0 0;
+  border-radius: 5px 5px 0 0;
 }
 
 .news_title_head h1
@@ -795,7 +790,7 @@ a
 
 .news_block:last-child
 {
-	border-radius: 0 0 15px 15px;
+	border-radius: 0 0 5px 5px;
 }
 
 /*----------------*/
@@ -813,15 +808,20 @@ a
 
 .cum,.daily
 {
-  background-color:rgb(250, 169, 49);
+  background-color:#F79824;
   opacity:0.8;
   cursor:pointer;
-  transition: 0.7s;
+  transition: 0.3s;
   width:20%;
   height: 10%;
   text-align: center;
   padding:1.5% 0;
   box-shadow:-5px 0 10px black;
+}
+
+.cum
+{
+  opacity:1;
 }
 
 .cum:hover,.daily:hover

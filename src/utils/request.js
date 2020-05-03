@@ -4,35 +4,6 @@ const request = require('request')
 
 const func = (place,callback)=>{
     console.log(place);
-
-    // var today_date=new Date();
-    // var today_year=today_date.getFullYear();
-    // var today_month=today_date.getMonth() +1;
-    // if(today_month<10)
-    // {
-    //     today_month='0'+today_month.toString()
-    // }
-    // var today_date_value=today_date.getDate();
-    // if(today_date_value<10)
-    // {
-    //     today_date_value='0'+today_date_value.toString()
-    // }
-
-    // var yest_date=new Date();
-    // yest_date.setDate(yest_date.getDate() - 1);
-    // var yest_year=yest_date.getFullYear();
-    // var yest_month=yest_date.getMonth() +1;
-    // if(yest_month<10)
-    // {
-    //     yest_month='0'+yest_month.toString()
-    // }
-    // var yest_date_value=yest_date.getDate();
-    // if(yest_date_value<10)
-    // {
-    //     yest_date_value='0'+yest_date_value.toString()
-    // }
-
-    // const url = 'https://api.covid19api.com/country/'+place+'?from='+today_year+'-'+today_month+'-'+today_date_value+'T00:00:00Z&to='+yest_year+'-'+yest_month+'-'+yest_date_value+'T00:00:00Z';
     
     const url = 'https://api.covid19api.com/total/country/'+place;
     console.log(url);
@@ -49,6 +20,7 @@ const func = (place,callback)=>{
         }else if(response.body.length==0){
 
             callback({msg:'No data to display',country:place},undefined)
+            //after this else if, check if place is an Indian state.
 
         }else{
 
