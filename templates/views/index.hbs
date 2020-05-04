@@ -6,7 +6,7 @@
 
 	<link rel="stylesheet" href="public/css.css">
 	<link rel="stylesheet" href="public/css_resp.css">
-	<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Muli&display=swap" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
@@ -21,11 +21,11 @@
 			<div class="search_globe">
 			<form autocomplete="off">
 				<div class="autocomplete">
-					<input id="myInput" type="text" placeholder="Country" required>
+					<input id="myInput" type="text" placeholder="Country or Indian State" required>
 				</div>
-				<button type="submit"><img src="https://img.icons8.com/ios/50/000000/search--v1.png"/></button>
+				<button type="submit"><img src="https://ya-webdesign.com/transparent250_/search-svg-15.png"/></button>
 			</form>
-			<img src="https://img.icons8.com/color/64/000000/europe.png" class="globe_icon" onClick="world_data()"/>			
+			<img src="https://cdn0.iconfinder.com/data/icons/business-and-finance-92/64/earth-global-512.png" class="globe_icon" onClick="world_data()"/>			
 			</div>
 			<div id="error1">	
 				<div class="containerx">
@@ -63,16 +63,6 @@
 					<div class="recovered">
 						<p>Recovered : </p>
 						<p id="recovered_count">1234</p>
-					</div>
-				</div>
-				<div class="graph_toggle_wrap">
-					<div class="graph_toggle">
-						<div class="cum" onClick="cum_graph()">
-							<h1>Cumulative</h1>
-						</div>
-						<div class="daily" onClick="daily_graph()">
-							<h1>Daily</h1>
-						</div>
 					</div>
 				</div>
 				<div class="news_wrap">
@@ -145,6 +135,16 @@
 						
 					</tbody>
 				</table>
+				<div class="graph_toggle_wrap">
+					<div class="graph_toggle">
+						<div class="cum" onClick="cum_graph()">
+							<h1>Cummulative</h1>
+						</div>
+						<div class="daily" onClick="daily_graph()">
+							<h1>Daily</h1>
+						</div>
+					</div>
+				</div>
 				<canvas id="myChart1" class="animated fadeIn"></canvas>
 				<br>
 				<canvas id="myChart2" class="animated fadeIn"></canvas>

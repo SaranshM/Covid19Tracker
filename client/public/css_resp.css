@@ -56,7 +56,7 @@
     .death p:first-child,.active p:first-child,.recovered p:first-child,.confirm p:first-child
     {
         font-weight: bold;
-        color:rgb(50,50,50);
+        color:#feffff;
         font-size:1.8vw;
     }
 
@@ -66,7 +66,7 @@
         text-align: center;
         font-size: 1.8vw;
         font-weight: bolder;
-        color:rgb(50,50,50);
+        color:#feffff;
     }
 
     #myInput
@@ -107,7 +107,6 @@
 
     .news_wrap
     {
-        font-family: 'Roboto Mono', monospace;
         display:none;
         width:65vw;
         margin: 7% auto 0 auto;
@@ -118,7 +117,7 @@
 
     .news_title_head h1
     {
-        font-size:1.5vw;
+        font-size:1.8vw;
     }
 
     .news_title
@@ -181,7 +180,7 @@
     .death p:first-child,.active p:first-child,.recovered p:first-child,.confirm p:first-child
     {
         font-weight: bold;
-        color:rgb(50,50,50);
+        color:#feffff;
         font-size:2.3vw;
     }
 
@@ -191,7 +190,7 @@
         text-align: center;
         font-size: 2.3vw;
         font-weight: bolder;
-        color:rgb(50,50,50);
+        color:#feffff;
     }
 
     #myInput
@@ -206,7 +205,6 @@
 
     .news_wrap
     {
-        font-family: 'Roboto Mono', monospace;
         display:none;
         width:70vw;
         margin: 10% auto 0 auto;
@@ -233,7 +231,7 @@
     }
 
     th{
-        font-size: 1.6vw;
+        font-size: 1.8vw;
     }
     td
     {
@@ -327,7 +325,7 @@
     .death p:first-child,.active p:first-child,.recovered p:first-child,.confirm p:first-child
     {
         font-weight: bold;
-        color:rgb(50,50,50);
+        color:#feffff;
         font-size:2.8vw;
     }
 
@@ -337,7 +335,7 @@
         text-align: center;
         font-size: 2.8vw;
         font-weight: bolder;
-        color:rgb(50,50,50);
+        color:#feffff;
     }
 
     #myInput
@@ -352,7 +350,6 @@
 
     .news_wrap
     {
-        font-family: 'Roboto Mono', monospace;
         display:none;
         width:80vw;
         margin: 10% auto 0 auto;
@@ -467,6 +464,11 @@
             width:100%;
             height: 140px;
         }
+
+        .cum,.daily
+        {
+            border-width:2px;
+        }
 }
 
 @media only screen and (max-width:378px)
@@ -484,7 +486,7 @@
     .death p:first-child,.active p:first-child,.recovered p:first-child,.confirm p:first-child
     {
         font-weight: bold;
-        color:rgb(50,50,50);
+        color:#feffff;
         font-size:2.8vw;
     }
 
@@ -494,7 +496,7 @@
         text-align: center;
         font-size: 2.8vw;
         font-weight: bolder;
-        color:rgb(50,50,50);
+        color:#feffff;
     }
 
     #myInput
@@ -509,7 +511,6 @@
 
     .news_wrap
     {
-        font-family: 'Roboto Mono', monospace;
         display:none;
         width:80vw;
         margin: 10% auto 0 auto;
@@ -576,7 +577,7 @@
 
     #myChart1
     {
-        margin-top:10%;
+        margin-top:5%;
     }
 
     .alert-box
@@ -645,6 +646,12 @@
             height: 140px;
         }
 
+        button img
+        {
+            width:40%;
+        
+        }
+
 }
 
 @media only screen and (max-width:320px)
@@ -655,14 +662,176 @@
         height:150px !important;
         /* background-color: rgba(231, 239, 246,0.9); */
         background-color: #e7eff6;
-        margin: 5% auto;
+        margin: 5% auto 0 auto;
         display:none;
         box-shadow:-5px 1px 15px black ;
     }
 
     #myChart1
     {
-        margin-top:10%;
+        margin-top:7%;
     }
 
+}
+
+@media only screen and (max-width:1024px) and (min-height:1366px)
+{
+    .super_wrap
+    {
+        display:flex;
+        flex-flow:column;
+    }
+
+    .left_half
+    {
+        width:100vw;
+        order:2;
+    }
+
+    .right_half
+    {
+        position: relative;
+        width:100vw;
+        height: 50vh;
+        left:0;
+        order:1;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+
+    form
+    {
+        margin-bottom:0%;
+    }
+
+    #chartdiv
+    {
+        height: 50vh;
+    }
+
+    #myInput
+    {
+        width: 50vw;
+    }
+
+    .death,.active,.recovered,.confirm
+    {
+        width:20vw;
+        padding:1.5%;
+        border-radius: 5px;
+        box-shadow: -5px 1px 10px rgba(0,0,0,0.7);
+        opacity:0.95;
+        transition: 0.2s;
+    }
+
+    .death p:first-child,.active p:first-child,.recovered p:first-child,.confirm p:first-child
+    {
+        font-weight: bold;
+        color:#feffff;
+        font-size:1.8vw;
+    }
+
+    .death p:last-child,.active p:last-child,.recovered p:last-child,.confirm p:last-child
+    {
+        margin-top:7.5%;
+        text-align: center;
+        font-size: 1.8vw;
+        font-weight: bolder;
+        color:#feffff;
+    }
+
+    #myInput
+    {
+        font-size:1.6vw;
+    }
+
+    th,td
+    {
+        font-size:1.5vw;
+    }
+
+    .table-fill
+    {
+        width:75vw;
+    }
+
+    #myChart1,#myChart2,#myChart3,#myChart4
+    {
+        width:75% !important;
+        height:15% !important;
+        /* background-color: rgba(231, 239, 246,0.9); */
+        background-color: #e7eff6;
+        margin: 5% auto 0 auto;
+        display:none;
+        box-shadow:-5px 1px 15px black ;
+    }
+
+    #myChart1
+    {
+        margin-top:5%;
+    }
+
+    .table-hover
+    {
+        max-height: 50vw;
+    }
+
+    .news_wrap
+    {
+        display:none;
+        width:65vw;
+        margin: 7% auto 0 auto;
+        background-color: #eee;
+        box-shadow: -5px 10px 20px black;
+        border-radius: 5px 5px 5px 5px;
+    }
+
+    .news_title_head h1
+    {
+        font-size:1.8vw;
+    }
+
+    .news_title
+    {
+        font-size: 1.6vw;
+    }
+
+    .cum h1,.daily h1
+    {
+        font-size:1.8vw;
+    }
+
+    .cum
+    {
+        margin-right:2%;
+    }
+
+    .daily
+    {
+        margin-left:2%;
+    }
+
+    .container .meta-section .thumbnail-image {
+        width:20vw;
+        height: 10vw;
+    }
+
+    .meta-information {
+        width:20vw;
+        height: 40px;
+        margin:0 auto;
+      }
+    
+      .item_wrap2 .meta-section
+      {
+        width:70vw;
+        margin:5% auto;
+    
+      }
+      
+      .item_wrap2 .meta-section .thumbnail-image
+        {
+            width:100%;
+            height: 300px;
+        }
 }

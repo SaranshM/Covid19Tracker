@@ -6,7 +6,8 @@
 }
 
 body {
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Muli', sans-serif;
+  background-color:#3AAFA9;
   overflow-y: auto;
 }
 
@@ -19,11 +20,8 @@ body {
 .left_half
 {
   width:45vw;
-  background-image:url("bg.jpg");
+  background-color:#3AAFA9;
   min-height: 100vh;
-  background-attachment:fixed;
-  background-repeat: no-repeat;
-  background-size: 45vw;
 }
 .right_half
 {
@@ -32,7 +30,7 @@ body {
   width:55vw;
   overflow:scroll;
   /* background-image:-webkit-linear-gradient(left,rgba(78, 244, 232,0.4),rgba(44, 36, 76,0.4),rgba(78, 244, 232,0.4));  */
-  background-color: #e7eff6;
+  background-color: #17252A;
 }
 
 .right_half::-webkit-scrollbar {
@@ -53,7 +51,7 @@ body {
 
 .header h1
 {
-  color:#eee;
+  color:#feffff;
   letter-spacing: 2px;
   font-size: 3vw;
 }
@@ -101,27 +99,25 @@ form
 button
 {
   border:none;
-  background-color: 	rgb(250, 169, 49);
+  background-color: 	#17252A;
   border-radius: 0px 30px 30px 0px;
   padding:1%;
   cursor: pointer;
   transition: .3s;
   opacity: 0.9;
   height: 50px;
+  width:50px;
 }
 
 button:hover
 {
-  box-shadow:0 0 5px rgb(250, 169, 49),
-              0 0 25px rgb(250, 169, 49),
-              0 0 50px rgb(250, 169, 49),
-              0 0 400px rgb(250, 169, 49);
   opacity: 1;
 }
 
 button img
 {
   width:60%;
+  
   cursor: pointer;
 }
 
@@ -168,10 +164,10 @@ input[type=text] {
 .autocomplete-items div {
   padding:10px;
   cursor: pointer;
-  background-color:#e7d3d3 ; 
+  background-color:#def2f1 ; 
   border-bottom: 1px solid black; 
   transition:background-color 0.4s;
-  border-radius: 5px;
+  border-radius: 2px;
 }
 .autocomplete-items div:hover {
   /*when hovering an item:*/
@@ -196,7 +192,7 @@ input[type=text] {
 
 .place h1
 {
-  color:#eee;
+  color:#feffff;
   text-align: center;
   font-weight: bold;
   letter-spacing: 1px;
@@ -223,12 +219,13 @@ input[type=text] {
   box-shadow: -5px 1px 10px rgba(0,0,0,0.7);
   opacity:0.95;
   transition: 0.2s;
+  border:solid 2px #def2f1;
 }
 
 .death p:first-child,.active p:first-child,.recovered p:first-child,.confirm p:first-child
 {
   font-weight: bold;
-  color:rgb(50,50,50);
+  color:#feffff;
   font-size:1.2vw;
 }
 
@@ -238,32 +235,32 @@ input[type=text] {
   text-align: center;
   font-size: 1.2vw;
   font-weight: bolder;
-  color:rgb(50,50,50);
+  color:#feffff;
 }
 
 .death
 {
-  background-color: #acabb0;
-background-image: linear-gradient(315deg, #acabb0 0%, #e01c34 74%);
+  background-color: #17252A;
+/* background-image: linear-gradient(315deg, #acabb0 0%, #e01c34 74%); */
 }
 
 .active
 {
-  background-color: #ef5734;
-background-image: linear-gradient(315deg, #ef5734 0%, #ffcc2f 74%);
+  background-color: #17252A;
+/* background-image: linear-gradient(315deg, #ef5734 0%, #ffcc2f 74%); */
 
 }
 
 .recovered
 {
-  background-color: #f2cf43;
-  background-image: linear-gradient(315deg, #f2cf43 0%, #19a186 74%);
+  background-color: #17252A;
+  /* background-image: linear-gradient(315deg, #f2cf43 0%, #19a186 74%); */
 }
 
 .confirm
 {
-  background-color: #eec0c6;
-  background-image: linear-gradient(315deg, #eec0c6 0%, #7ee8fa 74%);
+  background-color: #17252A;
+  /* background-image: linear-gradient(315deg, #eec0c6 0%, #7ee8fa 74%); */
 
 }
 
@@ -398,7 +395,7 @@ background-image: linear-gradient(315deg, #ef5734 0%, #ffcc2f 74%);
     border-collapse: collapse;
     display:none;
     
-    margin: 5% auto 10% auto;
+    margin: 7% auto 5% auto;
     width:95%;
     padding:5px;
     box-shadow: -5px 1px 10px rgba(0, 0, 0);
@@ -719,8 +716,6 @@ background-image: linear-gradient(315deg, #ef5734 0%, #ffcc2f 74%);
 
 .news_wrap
 {
-
-	font-family: 'Roboto Mono', monospace;
   display:none;
   width:40vw;
   margin: 7% auto 0 auto;
@@ -734,7 +729,7 @@ background-image: linear-gradient(315deg, #ef5734 0%, #ffcc2f 74%);
 
 .news_title_head
 {
-  background-color: #ACD2ED;
+  background-color: #2B7A78;
   padding:2% 3%;
   border-bottom: solid black 3px;
   border-radius: 5px 5px 0 0;
@@ -812,7 +807,7 @@ a
 
 .cum,.daily
 {
-  background-color:#F79824;
+  background-color:#2B7A78;
   opacity:0.8;
   cursor:pointer;
   transition: 0.3s;
@@ -821,6 +816,7 @@ a
   text-align: center;
   padding:1.5% 0;
   box-shadow:-5px 0 10px black;
+  border:solid 3px #def2f1;
 }
 
 .cum
@@ -837,6 +833,7 @@ a
 .cum h1,.daily h1
 {
   font-size:1vw;
+  color:#feffff;
 }
 
 .cum
