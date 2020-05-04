@@ -17,7 +17,7 @@ const func = (place,callback)=>{
             // console.log(states);
             var i
             for(i=0;i<x.length;i++){
-                if(place==x[i].state){
+                if(place.toLowerCase()==x[i].state.toLowerCase()){
                     break
                 }
             }
