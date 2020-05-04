@@ -7,7 +7,6 @@
 
 body {
   font-family: 'Roboto Mono', monospace;
-  background-color:#204051;
   overflow-y: auto;
 }
 
@@ -20,8 +19,11 @@ body {
 .left_half
 {
   width:45vw;
-  background-color:#204051;
+  background-image:url("bg.jpg");
   min-height: 100vh;
+  background-attachment:fixed;
+  background-repeat: no-repeat;
+  background-size: 45vw;
 }
 .right_half
 {

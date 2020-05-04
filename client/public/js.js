@@ -36,13 +36,14 @@ function location_track()
 
 //In the below function work is the id of input field (in this case myInput) and myfunc() is the function to be called on pressing enter
 
-// document.getElementById("work").addEventListener("keyup",function(event){
-//   event.preventDefault();
-//   if(event.keyCode===13){
-//   myfunc();
-//   }
+document.getElementById("myInput").addEventListener("keyup",function(event){
+  event.preventDefault();
+  if(event.keyCode===13)
+  {
+    search_place();
+  }
   
-//   });
+  });
 
 function formatNumber(num) {
   return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
@@ -57,6 +58,12 @@ function change_search_bar(place){
   var button=document.getElementsByTagName("form")[0];
   button.addEventListener('submit',(e)=>{
     e.preventDefault();
+    search_place();
+
+  });
+
+  function search_place()
+  {
     hide();
     var placex=document.getElementsByTagName('input')[0].value;
     axios.post('http://localhost:3000/region/country', {place:placex})
@@ -68,8 +75,7 @@ function change_search_bar(place){
               return display_data(res.data);
             }
     );
-
-  });
+  }
 
   
 
