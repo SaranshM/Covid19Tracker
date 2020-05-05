@@ -101,6 +101,22 @@ function display_data(data){
     axios.post('http://localhost:3000/region/world',{world:"world"})
             .then(res => {
               console.log(res.data);
+              document.getElementById("error").innerHTML="";
+              document.getElementById("error1").style.display="none";
+              document.getElementsByClassName("table-fill")[0].style.display="none";
+              if (myChart1) {
+                myChart1.destroy();
+              }
+              if (myChart2) {
+                myChart2.destroy();
+              }
+              if (myChart3) {
+                myChart3.destroy();
+              }
+              if (myChart4) {
+                myChart4.destroy();
+              }
+
               return display_data(res.data);
             }
         );

@@ -8,24 +8,23 @@ const func = (place,callback)=>{
     const url = 'https://api.covid19api.com/total/country/'+place;
     console.log(url);
     request( {url, json:true}, (error,response)=>{
-
+        console.log(response.body[0]);
         if(error){
-
+            
             callback({msg:'Error Message'},undefined)
 
         }else if(response.body.message){
-
+            
             callback({msg:'Country Not found',country:place},undefined)
 
         }else if(response.body.length==0){
-
+            
             callback({msg:'No data to display',country:place},undefined)
-            //after this else if, check if place is an Indian state.
+            //after tplace is an Indian state.
 
-        }else{
+        }else if(response.body[0].Country){
 
             // console.log(response.body[response.body.length - 1])
-
             var x =response.body[response.body.length - 1]
             var active = x.Confirmed - x.Recovered - x.Deaths
             var obj = {
@@ -86,6 +85,11 @@ const func = (place,callback)=>{
 
         
 
+        }
+        else
+        {
+            
+            callback({msg:'Country Not found',country:place},undefined)
         }
     } )
 }
