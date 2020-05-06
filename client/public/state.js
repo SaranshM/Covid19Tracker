@@ -63,6 +63,7 @@ function display_state_data(data){
   document.getElementById('loading').style.display="none";
   // document.getElementById("error1").style.display="none";
   document.getElementById('data_wrap').style.display="block";
+  document.getElementsByClassName("graph_toggle_wrap")[0].style.display="block";
   document.getElementsByClassName('table-fill')[0].style.display="table";
   document.getElementsByClassName("news_wrap")[0].style.display="none";
   var place=document.getElementById('place_value').innerHTML="India"+" - "+data.state;
