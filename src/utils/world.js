@@ -79,7 +79,7 @@ const func = (callback)=>{
 
 
                     obj = Object.assign(obj,temp)
-                    console.log(obj.news.items[0])
+                    // console.log(obj.news.items[0])
                     callback(undefined,obj)
                 }
             })

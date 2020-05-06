@@ -8,10 +8,10 @@ function location_track()
     navigator.geolocation.getCurrentPosition(function(position){
       flag=1;
       $.get( "https://us1.locationiq.com/v1/reverse.php?key=4a41aec453de57&lat="+position.coords.latitude+"&lon="+position.coords.longitude+"&format=json&zoom=5", function(data) {
-        console.log(data.address.country);
-        axios.post('http://localhost:3000/region/country', {place:data.address.country})
+        // console.log(data.address.country);
+        axios.post('/region/country', {place:data.address.country})
           .then(res => {
-              console.log(res.data);
+              // console.log(res.data);
               return display_data(res.data);
               
           }).catch(()=>{
@@ -21,7 +21,7 @@ function location_track()
     },function(error){
       if(error.code==error.PERMISSION_DENIED)
       {
-        axios.post('http://localhost:3000/region/world',{world:"world"})
+        axios.post('/region/world',{world:"world"})
             .then(res => {
               console.log(res.data);
               return display_data(res.data);
@@ -66,7 +66,7 @@ function change_search_bar(place){
   {
     hide();
     var placex=document.getElementsByTagName('input')[0].value;
-    axios.post('http://localhost:3000/region/country', {place:placex})
+    axios.post('/region/country', {place:placex})
             .then(res => {
               if(res.data.state)
               {

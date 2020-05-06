@@ -76,7 +76,7 @@ am4core.ready(function() {
         countrySeries.geodataSource.load();
       }
       console.log(ev.target.dataItem.dataContext.name);
-      axios.post('http://localhost:3000/region/country', {place:ev.target.dataItem.dataContext.name})
+      axios.post('/region/country', {place:ev.target.dataItem.dataContext.name})
             .then(res => {
               console.log(res.data);
               return display_data(res.data);
@@ -103,7 +103,7 @@ am4core.ready(function() {
         hide();
         console.log(ev.target.dataItem.dataContext.name);
 
-        axios.post('http://localhost:3000/region/state', {place:ev.target.dataItem.dataContext.name,country:ev.target.dataItem.dataContext.CNTRY})
+        axios.post('/region/state', {place:ev.target.dataItem.dataContext.name,country:ev.target.dataItem.dataContext.CNTRY})
             .then(res => {
               console.log(res.data)
 

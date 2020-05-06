@@ -71,7 +71,7 @@ function display_data(data){
     document.getElementById('confirm_count').innerHTML=formatNumber(data.confirmed);
     if(data.country!="World")
     {
-      console.log(data.country)
+      // console.log(data.country)
       document.getElementsByClassName("news_wrap")[0].style.display="none";
       display_charts(data.everyday,data.country,);
     }
@@ -98,7 +98,7 @@ function display_data(data){
     if (myChart4) {
       myChart4.destroy();
     }
-    axios.post('http://localhost:3000/region/world',{world:"world"})
+    axios.post('/region/world',{world:"world"})
             .then(res => {
               console.log(res.data);
               document.getElementById("error").innerHTML="";

@@ -4,7 +4,7 @@ const hbs = require('hbs')
 const bp=require('body-parser')
 
 const app = express()
-
+const port = process.env.PORT || 3000
 const post=bp.urlencoded({extended:false});
 app.use(bp.json());
 
@@ -28,14 +28,14 @@ app.get("/about",(req,res)=>{
     res.render("about");
 })
 
-app.get('/*',(req,res)=>{
+app.get('*',(req,res)=>{
     res.render('error404')
 })
 
 app.post('/region/:id',post, (req,res) => {
     
     var d = new Date();
-    console.log(d.getFullYear());
+    // console.log(d.getFullYear());
     if(req.params.id=="country")
     {
         list_of_states = [
@@ -99,7 +99,7 @@ app.post('/region/:id',post, (req,res) => {
                     })
           }else{
         //fetch data for country
-        console.log(req.body.place);
+        // console.log(req.body.place);
         module.exports = req.body.place;
         var func = require('./utils/request.js')
 
@@ -149,7 +149,7 @@ app.post('/region/:id',post, (req,res) => {
             if(error){
                 res.send(error)
             }else{
-                console.log(data)
+                // console.log(data)
                 res.send(data);
             }
         })
@@ -161,6 +161,6 @@ app.post('/region/:id',post, (req,res) => {
 })
 
 
-app.listen(3000,()=>{
+app.listen(port,()=>{
     console.log('server side js is up running.')
 })

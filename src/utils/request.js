@@ -3,12 +3,12 @@ const request = require('request')
 
 
 const func = (place,callback)=>{
-    console.log(place);
+    // console.log(place);
     
     const url = 'https://api.covid19api.com/total/country/'+place;
-    console.log(url);
+    // console.log(url);
     request( {url, json:true}, (error,response)=>{
-        console.log(response.body[0]);
+        // console.log(response.body[0]);
         if(error){
             
             callback({msg:'Error Message'},undefined)

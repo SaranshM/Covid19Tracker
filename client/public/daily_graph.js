@@ -21,7 +21,7 @@ function daily_graph()
     console.log(for_state);
     if(for_state.length==1)
     {
-        axios.post('http://localhost:3000/region/country', {place:place})
+        axios.post('/region/country', {place:place})
           .then(res => {
               console.log(res.data);
               display_charts(res.data.everyday,place,0);
@@ -32,7 +32,7 @@ function daily_graph()
     }
     else
     {
-      axios.post('http://localhost:3000/region/state', {place:for_state[1],country:for_state[0]})
+      axios.post('/region/state', {place:for_state[1],country:for_state[0]})
           .then(res => {
               console.log(res.data);
               display_charts(res.data.everyday,for_state[1],0);
@@ -65,7 +65,7 @@ function cum_graph()
     console.log(for_state);
     if(for_state.length==1)
     {
-      axios.post('http://localhost:3000/region/country', {place:place})
+      axios.post('/region/country', {place:place})
             .then(res => {
                 console.log(res.data);
                 display_charts(res.data.everyday,place);
@@ -76,7 +76,7 @@ function cum_graph()
     }
     else
     {
-      axios.post('http://localhost:3000/region/state', {place:for_state[1],country:for_state[0]})
+      axios.post('/region/state', {place:for_state[1],country:for_state[0]})
           .then(res => {
               console.log(res.data);
               display_charts(res.data.everyday,for_state[1]);
