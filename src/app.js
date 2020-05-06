@@ -28,9 +28,7 @@ app.get("/about",(req,res)=>{
     res.render("about");
 })
 
-app.get('*',(req,res)=>{
-    res.render('error404')
-})
+
 
 app.post('/region/:id',post, (req,res) => {
     
@@ -160,6 +158,10 @@ app.post('/region/:id',post, (req,res) => {
 
 })
 
+
+app.get('*',(req,res)=>{
+    res.render('error404')
+})
 
 app.listen(port,()=>{
     console.log('server side js is up running.')
