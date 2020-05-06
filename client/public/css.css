@@ -847,3 +847,63 @@ a
 }
 
 /*------------*/
+
+/*Strip*/
+
+
+.strip
+{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin:1% 0 0 0;
+}
+
+.strip_wrap a
+{
+  text-decoration: none;
+}
+
+.strip img
+{
+  width:30px;
+  margin-right: 1%;
+}
+
+.strip p
+{
+  color:#feffff;
+  margin-left: 1%;
+}
+
+/*-----------------*/
+
+/*Repo*/
+
+.repo
+{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin:15% 0 0 0;
+}
+
+.repo_wrap a
+{
+  text-decoration: none;
+}
+
+.repo img
+{
+  width:30px;
+  margin-right: 1%;
+}
+
+.repo p
+{
+  color:#17252A;
+  margin-left: 1%;
+  font-weight: bold;
+}
+
+/*-----------------*/
